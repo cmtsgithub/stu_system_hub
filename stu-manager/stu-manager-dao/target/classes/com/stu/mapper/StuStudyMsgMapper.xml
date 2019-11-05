@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stu.mapper.StuStudyMsgMapper" >
+  <resultMap id="BaseResultMap" type="com.stu.pojo.StuStudyMsg" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="stu_id" property="stuId" jdbcType="CHAR" />
+    <result column="semester" property="semester" jdbcType="TIMESTAMP" />
+    <result column="term" property="term" jdbcType="INTEGER" />
+    <result column="academy_id" property="academyId" jdbcType="INTEGER" />
+    <result column="major_id" property="majorId" jdbcType="INTEGER" />
+    <result column="study_status" property="studyStatus" jdbcType="INTEGER" />
+    <result column="is_in_school" property="isInSchool" jdbcType="INTEGER" />
+    <result column="education_level" property="educationLevel" jdbcType="VARCHAR" />
+    <result column="cultivate_level" property="cultivateLevel" jdbcType="VARCHAR" />
+    <result column="category" property="category" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, stu_id, semester, term, academy_id, major_id, study_status, is_in_school, education_level, 
+    cultivate_level, category
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from stu_study_msg
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from stu_study_msg
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.stu.pojo.StuStudyMsg" >
+    insert into stu_study_msg (id, stu_id, semester, 
+      term, academy_id, major_id, 
+      study_status, is_in_school, education_level, 
+      cultivate_level, category)
+    values (#{id,jdbcType=INTEGER}, #{stuId,jdbcType=CHAR}, #{semester,jdbcType=TIMESTAMP}, 
+      #{term,jdbcType=INTEGER}, #{academyId,jdbcType=INTEGER}, #{majorId,jdbcType=INTEGER}, 
+      #{studyStatus,jdbcType=INTEGER}, #{isInSchool,jdbcType=INTEGER}, #{educationLevel,jdbcType=VARCHAR}, 
+      #{cultivateLevel,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.stu.pojo.StuStudyMsg" >
+    insert into stu_study_msg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="stuId != null" >
+        stu_id,
+      </if>
+      <if test="semester != null" >
+        semester,
+      </if>
+      <if test="term != null" >
+        term,
+      </if>
+      <if test="academyId != null" >
+        academy_id,
+      </if>
+      <if test="majorId != null" >
+        major_id,
+      </if>
+      <if test="studyStatus != null" >
+        study_status,
+      </if>
+      <if test="isInSchool != null" >
+        is_in_school,
+      </if>
+      <if test="educationLevel != null" >
+        education_level,
+      </if>
+      <if test="cultivateLevel != null" >
+        cultivate_level,
+      </if>
+      <if test="category != null" >
+        category,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="stuId != null" >
+        #{stuId,jdbcType=CHAR},
+      </if>
+      <if test="semester != null" >
+        #{semester,jdbcType=TIMESTAMP},
+      </if>
+      <if test="term != null" >
+        #{term,jdbcType=INTEGER},
+      </if>
+      <if test="academyId != null" >
+        #{academyId,jdbcType=INTEGER},
+      </if>
+      <if test="majorId != null" >
+        #{majorId,jdbcType=INTEGER},
+      </if>
+      <if test="studyStatus != null" >
+        #{studyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isInSchool != null" >
+        #{isInSchool,jdbcType=INTEGER},
+      </if>
+      <if test="educationLevel != null" >
+        #{educationLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="cultivateLevel != null" >
+        #{cultivateLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.stu.pojo.StuStudyMsg" >
+    update stu_study_msg
+    <set >
+      <if test="stuId != null" >
+        stu_id = #{stuId,jdbcType=CHAR},
+      </if>
+      <if test="semester != null" >
+        semester = #{semester,jdbcType=TIMESTAMP},
+      </if>
+      <if test="term != null" >
+        term = #{term,jdbcType=INTEGER},
+      </if>
+      <if test="academyId != null" >
+        academy_id = #{academyId,jdbcType=INTEGER},
+      </if>
+      <if test="majorId != null" >
+        major_id = #{majorId,jdbcType=INTEGER},
+      </if>
+      <if test="studyStatus != null" >
+        study_status = #{studyStatus,jdbcType=INTEGER},
+      </if>
+      <if test="isInSchool != null" >
+        is_in_school = #{isInSchool,jdbcType=INTEGER},
+      </if>
+      <if test="educationLevel != null" >
+        education_level = #{educationLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="cultivateLevel != null" >
+        cultivate_level = #{cultivateLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        category = #{category,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.stu.pojo.StuStudyMsg" >
+    update stu_study_msg
+    set stu_id = #{stuId,jdbcType=CHAR},
+      semester = #{semester,jdbcType=TIMESTAMP},
+      term = #{term,jdbcType=INTEGER},
+      academy_id = #{academyId,jdbcType=INTEGER},
+      major_id = #{majorId,jdbcType=INTEGER},
+      study_status = #{studyStatus,jdbcType=INTEGER},
+      is_in_school = #{isInSchool,jdbcType=INTEGER},
+      education_level = #{educationLevel,jdbcType=VARCHAR},
+      cultivate_level = #{cultivateLevel,jdbcType=VARCHAR},
+      category = #{category,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

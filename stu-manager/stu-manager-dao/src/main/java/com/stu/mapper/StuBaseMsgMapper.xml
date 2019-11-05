@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stu.mapper.StuBaseMsgMapper" >
+  <resultMap id="BaseResultMap" type="com.stu.pojo.StuBaseMsg" >
+    <id column="id" property="id" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="certificate_type" property="certificateType" jdbcType="VARCHAR" />
+    <result column="certificate_number" property="certificateNumber" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="politics_status" property="politicsStatus" jdbcType="VARCHAR" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="ancestral_home" property="ancestralHome" jdbcType="VARCHAR" />
+    <result column="enrollment_date" property="enrollmentDate" jdbcType="TIMESTAMP" />
+    <result column="reg_permanent_residence" property="regPermanentResidence" jdbcType="VARCHAR" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="updated" property="updated" jdbcType="TIMESTAMP" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, name, sex, certificate_type, certificate_number, birthday, nation, politics_status, 
+    image, ancestral_home, enrollment_date, reg_permanent_residence, created, updated, 
+    password
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from stu_base_msg
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from stu_base_msg
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from stu_base_msg
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.stu.pojo.StuBaseMsg" >
+    insert into stu_base_msg (id, name, sex, certificate_type, 
+      certificate_number, birthday, nation, 
+      politics_status, image, ancestral_home, 
+      enrollment_date, reg_permanent_residence, 
+      created, updated, password
+      )
+    values (#{id,jdbcType=CHAR}, #{name,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{certificateType,jdbcType=VARCHAR}, 
+      #{certificateNumber,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, #{nation,jdbcType=VARCHAR}, 
+      #{politicsStatus,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, #{ancestralHome,jdbcType=VARCHAR}, 
+      #{enrollmentDate,jdbcType=TIMESTAMP}, #{regPermanentResidence,jdbcType=VARCHAR}, 
+      #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP}, #{password,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.stu.pojo.StuBaseMsg" >
+    insert into stu_base_msg
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="certificateType != null" >
+        certificate_type,
+      </if>
+      <if test="certificateNumber != null" >
+        certificate_number,
+      </if>
+      <if test="birthday != null" >
+        birthday,
+      </if>
+      <if test="nation != null" >
+        nation,
+      </if>
+      <if test="politicsStatus != null" >
+        politics_status,
+      </if>
+      <if test="image != null" >
+        image,
+      </if>
+      <if test="ancestralHome != null" >
+        ancestral_home,
+      </if>
+      <if test="enrollmentDate != null" >
+        enrollment_date,
+      </if>
+      <if test="regPermanentResidence != null" >
+        reg_permanent_residence,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="updated != null" >
+        updated,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateType != null" >
+        #{certificateType,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateNumber != null" >
+        #{certificateNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="politicsStatus != null" >
+        #{politicsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="ancestralHome != null" >
+        #{ancestralHome,jdbcType=VARCHAR},
+      </if>
+      <if test="enrollmentDate != null" >
+        #{enrollmentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regPermanentResidence != null" >
+        #{regPermanentResidence,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null" >
+        #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.stu.pojo.StuBaseMsg" >
+    update stu_base_msg
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateType != null" >
+        certificate_type = #{certificateType,jdbcType=VARCHAR},
+      </if>
+      <if test="certificateNumber != null" >
+        certificate_number = #{certificateNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null" >
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nation != null" >
+        nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="politicsStatus != null" >
+        politics_status = #{politicsStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null" >
+        image = #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="ancestralHome != null" >
+        ancestral_home = #{ancestralHome,jdbcType=VARCHAR},
+      </if>
+      <if test="enrollmentDate != null" >
+        enrollment_date = #{enrollmentDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regPermanentResidence != null" >
+        reg_permanent_residence = #{regPermanentResidence,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updated != null" >
+        updated = #{updated,jdbcType=TIMESTAMP},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.stu.pojo.StuBaseMsg" >
+    update stu_base_msg
+    set name = #{name,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      certificate_type = #{certificateType,jdbcType=VARCHAR},
+      certificate_number = #{certificateNumber,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      nation = #{nation,jdbcType=VARCHAR},
+      politics_status = #{politicsStatus,jdbcType=VARCHAR},
+      image = #{image,jdbcType=VARCHAR},
+      ancestral_home = #{ancestralHome,jdbcType=VARCHAR},
+      enrollment_date = #{enrollmentDate,jdbcType=TIMESTAMP},
+      reg_permanent_residence = #{regPermanentResidence,jdbcType=VARCHAR},
+      created = #{created,jdbcType=TIMESTAMP},
+      updated = #{updated,jdbcType=TIMESTAMP},
+      password = #{password,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+</mapper>
