@@ -21,8 +21,8 @@ public class StuServiceImpl implements StuService {
     }
 
     @Override
-    public JsonResult insertSelective(StuBaseMsg record) {
+    public int insertSelective(StuBaseMsg record) {
         //从长计议
-        return null;
+        return 0;
     }
 }

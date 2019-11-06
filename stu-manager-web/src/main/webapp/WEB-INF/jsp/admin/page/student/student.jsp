@@ -144,6 +144,22 @@
     layui.use("layer", function () {
         var layer = layui.layer;
         $("#add, #edit").click(function () {
+            //发送ajax请求获取院系，专业列表
+            $.ajax({
+                url : "http://localhost:8083/getStuAcademies",
+                type : "GET",
+                async : true,
+                dataType : 'json',
+                success : function(data) {
+                    if (data.status == 200) {
+                        layer.alert(data, {
+                            title: '新增成功'
+                        })
+                    } else {
+
+                    }
+                }
+            });
             layer.open({
                 type: 1,
                 title: '新增学生',
@@ -234,12 +250,28 @@
                 <input type="text" name="politicsStatus" autocomplete="off" placeholder="例如：共青团团员" class="layui-input">
             </div>
         </div>
-    </div>
-    <div class="layui-form-item">
         <div class="layui-inline">
             <label class="layui-form-label">户口所在地</label>
             <div class="layui-input-inline">
                 <input type="text" name="regPermanentResidence" autocomplete="off" placeholder="例如：共青团团员" class="layui-input">
+            </div>
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-inline">
+            <label class="layui-form-label">院系</label>
+            <div class="layui-input-inline">
+                <select name="academyId" lay-filter="aihao" id="academy_select">
+                    <option value="汉族">计算机学院</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">专业</label>
+            <div class="layui-input-inline">
+                <select name="majorId" lay-filter="aihao" id="major_select">
+                    <option value="汉族">计算机科学与技术</option>
+                </select>
             </div>
         </div>
         <div class="layui-inline">

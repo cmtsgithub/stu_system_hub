@@ -9,5 +9,5 @@ public interface StuService {
 
     List<StuBaseMsg> selectStuBaseMsgAll();
 
-    JsonResult insertSelective(StuBaseMsg record);
+    int insertSelective(StuBaseMsg record);
 }
