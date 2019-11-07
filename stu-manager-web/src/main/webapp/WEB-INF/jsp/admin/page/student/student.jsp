@@ -168,6 +168,7 @@
     layui.use("layer", function () {
         var layer = layui.layer;
         $("#add, #edit").click(function () {
+            $("#academy_select").empty();
             //发送ajax请求获取院系，专业列表
             $.ajax({
                 type: "get",
@@ -182,6 +183,8 @@
                         var str = "<option value=" + content.id + ">" + content.name + "</option>";
                         $("#academy_select").append(str);
                     });
+                    //请求专业列表
+                    getMajors($('#academy_select option:selected') .val());
                     //渲染表单
                     renderForm();
                 },
@@ -207,13 +210,42 @@
     });
 </script>
 <script>
+    //监听院系变化select框
     layui.use('form', function () {
         var form = layui.form;
         form.on('select(academy)', function(data){
-            alert(data.value);
+            getMajors(data.value);
             form.render('select');
         });
     });
+    /**
+     * 获取专业的函数
+     * @param data 院系id
+     */
+    function getMajors(data) {
+        //发送ajax请求获取院系，专业列表
+        $("#major_select").empty();
+        $.ajax({
+            type: "get",
+            async: true,
+            url: "http://localhost:8083/getMajors?academyId=" + data,
+            dataType: "jsonp",
+            jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+            success: function(json){
+                $.each( json, function(index, content)
+                {
+                    //为Select追加一个Option(下拉项)
+                    var str = "<option value=" + content.id + ">" + content.name + "</option>";
+                    $("#major_select").append(str);
+                });
+                //渲染表单
+                renderForm();
+            },
+            error: function(){
+                alert('专业列表请求失败');
+            }
+        });
+    }
 </script>
 </body>
 <form class="layui-form layui-form-pane" action="" id="add_form" style="margin-left: 20px">
@@ -293,8 +325,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">专业</label>
             <div class="layui-input-inline">
-                <select name="majorId" lay-filter="aihao" id="major_select">
-                    <option value="汉族">计算机科学与技术</option>
+                <select name="majorId" lay-filter="major" id="major_select">
                 </select>
             </div>
         </div>

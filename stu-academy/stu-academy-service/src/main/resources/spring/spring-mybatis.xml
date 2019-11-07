@@ -30,6 +30,7 @@
 	<dubbo:protocol name="dubbo" port="20881" />
 	<!-- 声明需要暴露的服务接口 -->
 	<dubbo:service interface="com.stu.service.StuAcademyService" ref="stuAcademyServiceImpl" timeout="1000000"/>
+	<dubbo:service interface="com.stu.service.StuMajorService" ref="stuMajorServiceImpl" timeout="1000000"/>
 
     <!-- 加载配置文件 -->
 	<context:property-placeholder location="classpath:properties/db.properties" />
