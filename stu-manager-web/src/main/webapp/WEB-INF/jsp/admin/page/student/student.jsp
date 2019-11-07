@@ -141,42 +141,7 @@
     });
 </script>
 <script>
-    layui.use("layer", function () {
-        var layer = layui.layer;
-        $("#add, #edit").click(function () {
-            //发送ajax请求获取院系，专业列表
-            $.ajax({
-                url : "http://localhost:8083/getStuAcademies",
-                type : "GET",
-                async : true,
-                dataType : 'json',
-                success : function(data) {
-                    if (data.status == 200) {
-                        layer.alert(data, {
-                            title: '新增成功'
-                        })
-                    } else {
-
-                    }
-                }
-            });
-            layer.open({
-                type: 1,
-                title: '新增学生',
-                area: ['1000px', '600px'],
-                content: $('#add_form') //这里content是一个普通的String
-            });
-        });
-        $("#del").click(function(){
-            //配置一个透明的询问框
-            layer.msg('确定要删除吗？请三思哦！', {
-                time: 20000, //20s后自动关闭
-                btn: ['确认删除', '我去三思', '不删了']
-            });
-        })
-    });
-</script>
-<script>
+    //自动渲染一次表单
     layui.use('form', function(){
         var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
 
@@ -186,10 +151,70 @@
         //因此你需要在相应的地方，执行下述方法来进行渲染
         form.render();
     });
+    //表单渲染函数
+    function renderForm(){
+        layui.use('form', function(){
+            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+            //……
+
+            //但是，如果你的HTML是动态生成的，自动渲染就会失效
+            //因此你需要在相应的地方，执行下述方法来进行渲染
+            form.render();
+        });
+    }
 </script>
-
-
-
+<script>
+    layui.use("layer", function () {
+        var layer = layui.layer;
+        $("#add, #edit").click(function () {
+            //发送ajax请求获取院系，专业列表
+            $.ajax({
+                type: "get",
+                async: true,
+                url: "http://localhost:8083/getStuAcademies",
+                dataType: "jsonp",
+                jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+                success: function(json){
+                    $.each( json, function(index, content)
+                    {
+                        //为Select追加一个Option(下拉项)
+                        var str = "<option value=" + content.id + ">" + content.name + "</option>";
+                        $("#academy_select").append(str);
+                    });
+                    //渲染表单
+                    renderForm();
+                },
+                error: function(){
+                    alert('院系列表请求失败');
+                }
+            });
+            layer.open({
+                type: 1,
+                title: '新增学生',
+                area: ['1000px', '600px'],
+                content: $('#add_form') //这里content是一个普通的String
+            });
+        });
+        //删除监听函数
+        $("#del").click(function(){
+            //配置一个透明的询问框
+            layer.msg('确定要删除吗？请三思哦！', {
+                time: 20000, //20s后自动关闭
+                btn: ['确认删除', '我去三思', '不删了']
+            });
+        });
+    });
+</script>
+<script>
+    layui.use('form', function () {
+        var form = layui.form;
+        form.on('select(academy)', function(data){
+            alert(data.value);
+            form.render('select');
+        });
+    });
+</script>
 </body>
 <form class="layui-form layui-form-pane" action="" id="add_form" style="margin-left: 20px">
     <div class="layui-form-item" style="margin-top: 10px">
@@ -261,8 +286,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">院系</label>
             <div class="layui-input-inline">
-                <select name="academyId" lay-filter="aihao" id="academy_select">
-                    <option value="汉族">计算机学院</option>
+                <select name="academyId" lay-filter="academy" id="academy_select">
                 </select>
             </div>
         </div>
@@ -299,7 +323,6 @@
         </div>
     </div>
 </form>
-
 <script>
     layui.use(['form', 'layedit', 'laydate'], function(){
         var form = layui.form
