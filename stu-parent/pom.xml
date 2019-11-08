@@ -50,6 +50,7 @@
     <activemq.version>5.11.2</activemq.version>
     <freemarker.version>2.3.23</freemarker.version>
     <quartz.version>2.2.2</quartz.version>
+    <commons-beanutils.version>1.9.3</commons-beanutils.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
   <dependencyManagement>
@@ -252,6 +253,11 @@
         <groupId>org.freemarker</groupId>
         <artifactId>freemarker</artifactId>
         <version>${freemarker.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-beanutils</groupId>
+        <artifactId>commons-beanutils</artifactId>
+        <version>${commons-beanutils.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

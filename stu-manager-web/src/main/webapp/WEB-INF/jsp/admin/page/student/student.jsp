@@ -275,7 +275,7 @@
             <label class="layui-form-label">证件类型</label>
             <div class="layui-input-inline">
                 <select name="certificateType" lay-filter="aihao">
-                    <option value="0">身份证</option>
+                    <option value="身份证">身份证</option>
                 </select>
             </div>
         </div>
@@ -343,13 +343,15 @@
                 <button type="button" class="layui-btn" id="uploadImg">
                     <i class="layui-icon">&#xe67c;</i>上传图片
                 </button>
+                <input type="hidden" id="uploadImgUrl" name="image" value="">
             </div>
         </div>
         <div class="layui-inline" id="rotationChartDiv"></div>
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button type="submit" id="form_submit_btn" class="layui-btn layui-btn-disabled" lay-submit="" lay-filter="demo1" disabled="disabled">立即提交</button>
+<%--            <button type="submit" id="form_submit_btn" class="layui-btn layui-btn-disabled" lay-submit="" lay-filter="demo1" disabled="disabled">立即提交</button>--%>
+    <button type="submit" id="form_submit_btn" class="layui-btn " lay-submit="" lay-filter="demo1" >立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
@@ -389,7 +391,7 @@
         form.on('submit(demo1)', function(data){
             //发送ajax请求
             $.ajax({
-                url : "/stu_base_msg_add",
+                url : "/stu_add",
                 type : "POST",
                 contentType: 'application/json',
                 async : true,
@@ -399,9 +401,11 @@
                     if (data.status == 200) {
                         layer.alert(data.msg, {
                             title: '新增成功'
-                        })
+                        });
                     } else {
-
+                        layer.alert(data.msg, {
+                            title: '新增失败'
+                        });
                     }
                 }
             });
@@ -440,7 +444,7 @@
                     data.data.url + '" style="max-width: 100%;max-height: 100%;">';
                 $("#form_submit_btn").removeClass("layui-btn-disabled").removeAttr('disabled');
                 $("#rotationChartDiv").html(img);
-                layer.alert(data.data.url);
+                $("#uploadImgUrl").val(data.data.url);
             }
             ,error: function(){
                 layer.msg("上传失败");
@@ -450,6 +454,7 @@
 </script>
 <script>
     var renderImg = function () {
+        var form = layui.form;
         form.render();
         layer.photos({
             photos: '.theImg'
