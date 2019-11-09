@@ -19,4 +19,14 @@ public class StuMajorServiceImpl implements StuMajorService {
         List<StuMajor> stuMajors = stuMajorMapper.selectByAcademyId(id);
         return stuMajors;
     }
+
+    @Override
+    public StuMajor selectByPrimaryKey(Integer id) {
+        return stuMajorMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public int updateByPrimaryKeySelective(StuMajor record) {
+        return stuMajorMapper.updateByPrimaryKeySelective(record);
+    }
 }

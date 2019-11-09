@@ -1,4 +1,5 @@
 com\stu\utils\JsonUtils.class
 com\stu\MyPortlet.class
+com\stu\utils\DateUtils.class
 com\stu\utils\BeanMapUtils.class
 com\stu\utils\JsonResult.class

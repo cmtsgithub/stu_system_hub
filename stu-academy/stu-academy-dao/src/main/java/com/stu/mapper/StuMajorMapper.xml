@@ -5,11 +5,12 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="academy_id" property="academyId" jdbcType="INTEGER" />
+    <result column="number" property="number" jdbcType="INTEGER" />
     <result column="created" property="created" jdbcType="TIMESTAMP" />
     <result column="updated" property="updated" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, academy_id, created, updated
+    id, name, number, academy_id, created, updated
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
@@ -45,6 +46,9 @@
       <if test="academyId != null" >
         academy_id,
       </if>
+      <if test="number != null" >
+        number,
+      </if>
       <if test="created != null" >
         created,
       </if>
@@ -61,6 +65,9 @@
       </if>
       <if test="academyId != null" >
         #{academyId,jdbcType=INTEGER},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
       </if>
       <if test="created != null" >
         #{created,jdbcType=TIMESTAMP},
@@ -79,6 +86,9 @@
       <if test="academyId != null" >
         academy_id = #{academyId,jdbcType=INTEGER},
       </if>
+      <if test="number != null" >
+        number = #{number,jdbcType=INTEGER},
+      </if>
       <if test="created != null" >
         created = #{created,jdbcType=TIMESTAMP},
       </if>
@@ -92,6 +102,7 @@
     update stu_major
     set name = #{name,jdbcType=VARCHAR},
       academy_id = #{academyId,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER},
       created = #{created,jdbcType=TIMESTAMP},
       updated = #{updated,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}

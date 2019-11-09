@@ -10,6 +10,8 @@ public class StuMajor implements Serializable {
 
     private Integer academyId;
 
+    private Integer number;
+
     private Date created;
 
     private Date updated;
@@ -36,6 +38,14 @@ public class StuMajor implements Serializable {
 
     public void setAcademyId(Integer academyId) {
         this.academyId = academyId;
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     public Date getCreated() {

@@ -42,7 +42,6 @@ public class BeanMapUtils {
                     args[0] = value;
                     descriptor.getWriteMethod().invoke(obj, args);
                 }catch (IllegalArgumentException e){
-                    e.printStackTrace();
                 }
             }
         }

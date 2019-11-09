@@ -350,8 +350,8 @@
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-<%--            <button type="submit" id="form_submit_btn" class="layui-btn layui-btn-disabled" lay-submit="" lay-filter="demo1" disabled="disabled">立即提交</button>--%>
-    <button type="submit" id="form_submit_btn" class="layui-btn " lay-submit="" lay-filter="demo1" >立即提交</button>
+            <button type="submit" id="form_submit_btn" class="layui-btn layui-btn-disabled" lay-submit="" lay-filter="demo1" disabled="disabled">立即提交</button>
+<%--    <button type="submit" id="form_submit_btn" class="layui-btn " lay-submit="" lay-filter="demo1" >立即提交</button>--%>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
