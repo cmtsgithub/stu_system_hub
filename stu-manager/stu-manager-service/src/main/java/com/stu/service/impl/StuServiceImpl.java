@@ -40,7 +40,7 @@ public class StuServiceImpl implements StuService {
      * 新增学生
      * @param stuBaseMsg pojo
      * @param stuStudyMsg pojo
-     * @return 1 新增成功 0 新增失败
+     * @return 学号 新增成功 0 新增失败
      */
     @Override
     @Transactional
@@ -85,9 +85,19 @@ public class StuServiceImpl implements StuService {
             stuMajorService.updateByPrimaryKeySelective(stuMajor);
             stuBaseMsgMapper.insertSelective(stuBaseMsg);
             stuStudyMsgMapper.insertSelective(stuStudyMsg);
-            return 1;
+            return Integer.parseInt(stuBaseMsg.getId());
         }else{
             return 0;
         }
+    }
+
+    /**
+     * 返回一个StuBaseMsg对象
+     * @param id 学号，主键
+     * @return StuBaseMsg
+     */
+    @Override
+    public StuBaseMsg selectByPrimaryKey(String id) {
+        return stuBaseMsgMapper.selectByPrimaryKey(id);
     }
 }

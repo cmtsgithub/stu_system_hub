@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: Admin
@@ -74,7 +75,7 @@
                 <div class="am-g">
                     <div class="am-u-sm-12">
                         <form class="am-form">
-                            <table class="am-table am-table-striped am-table-hover table-main">
+                            <table id="stu_table" class="am-table am-table-striped am-table-hover table-main">
                                 <thead>
                                 <tr>
                                     <th class="table-check"><input type="checkbox" /></th><th class="table-id">学号</th><th class="table-hover">姓名</th><th class="table-type">性别</th><th class="table-date am-hide-sm-only">修改日期</th><th class="table-set">操作</th>
@@ -87,7 +88,7 @@
                                     <td >${stuBaseMsg.id}</td>
                                     <td >${stuBaseMsg.name}</td>
                                     <td >${stuBaseMsg.sex}</td>
-                                    <td >${stuBaseMsg.updated}</td>
+                                    <td ><fmt:formatDate value="${stuBaseMsg.updated}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
                                     <td>
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
@@ -123,6 +124,7 @@
 <a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 <jsp:include page="/WEB-INF/jsp/common/jsscript.jsp"></jsp:include>
 
+<%--分页脚本--%>
 <script>
     layui.use('laypage', function(){
         var laypage = layui.laypage;
@@ -140,6 +142,7 @@
         });
     });
 </script>
+<%--表单渲染脚本--%>
 <script>
     //自动渲染一次表单
     layui.use('form', function(){
@@ -164,6 +167,7 @@
         });
     }
 </script>
+<%--获取院系列表--%>
 <script>
     layui.use("layer", function () {
         var layer = layui.layer;
@@ -209,6 +213,7 @@
         });
     });
 </script>
+<%--院系联动脚本--%>
 <script>
     //监听院系变化select框
     layui.use('form', function () {
@@ -248,6 +253,7 @@
     }
 </script>
 </body>
+<%--表单--%>
 <form class="layui-form layui-form-pane" action="" id="add_form" style="margin-left: 20px">
     <div class="layui-form-item" style="margin-top: 10px">
         <div class="layui-inline">
@@ -282,7 +288,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">身份证号码</label>
             <div class="layui-input-inline">
-                <input type="text" name="certificateNumber" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input">
+                <input type="text" name="certificateNumber" lay-verify="identity" placeholder="" autocomplete="off" class="layui-input" value="441827199803127214">
             </div>
         </div>
         <div class="layui-inline">
@@ -350,12 +356,13 @@
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button type="submit" id="form_submit_btn" class="layui-btn layui-btn-disabled" lay-submit="" lay-filter="demo1" disabled="disabled">立即提交</button>
-<%--    <button type="submit" id="form_submit_btn" class="layui-btn " lay-submit="" lay-filter="demo1" >立即提交</button>--%>
+<%--            <button type="submit" id="form_submit_btn" class="layui-btn layui-btn-disabled" lay-submit="" lay-filter="demo1" disabled="disabled">立即提交</button>--%>
+    <button type="submit" id="form_submit_btn" class="layui-btn " lay-submit="" lay-filter="demo1" >立即提交</button>
             <button type="reset" class="layui-btn layui-btn-primary">重置</button>
         </div>
     </div>
 </form>
+<%--表单提交脚本--%>
 <script>
     layui.use(['form', 'layedit', 'laydate'], function(){
         var form = layui.form
@@ -402,6 +409,22 @@
                         layer.alert(data.msg, {
                             title: '新增成功'
                         });
+                        var stu = data.data;
+                        alert(stu.updated);
+                        //异步插入表格中
+                        $("#stu_table").prepend(
+                            "<tr><td><input type='checkbox' /></td><td >" + stu.id + "</td><td >" + stu.name + "</td><td >" + stu.sex + "</td><td >" + dateFormat(stu.updated) + "</td><td>"
+                             + "<div class='am-btn-toolbar'>\n" +
+                            "    <div class='am-btn-group am-btn-group-xs'>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary' type='button' id='edit'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only'><span class='am-icon-copy'></span> 复制</button>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only'><span class='am-icon-trash-o'></span> 删除</button>\n" +
+                            "    </div>\n" +
+                            "</div>\n" +
+                            "</td>\n" +
+                            "</tr>"
+
+                        );
                     } else {
                         layer.alert(data.msg, {
                             title: '新增失败'
@@ -412,6 +435,22 @@
             return false;
         });
 
+        //时间格式化函数，此处仅针对yyyy-MM-dd hh:mm:ss 的格式进行格式化
+        var dateFormat = function(time) {
+            var date=new Date(time);
+            var year=date.getFullYear();
+            /* 在日期格式中，月份是从0开始的，因此要加0
+             * 使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+             * */
+            var month= date.getMonth()+1<10 ? "0"+(date.getMonth()+1) : date.getMonth()+1;
+            var day=date.getDate()<10 ? "0"+date.getDate() : date.getDate();
+            var hours=date.getHours()<10 ? "0"+date.getHours() : date.getHours();
+            var minutes=date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes();
+            var seconds=date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds();
+            // 拼接
+            return year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
+        }
+
         //表单取值
         layui.$('#LAY-component-form-getval').on('click', function(){
             var data = form.val('example');
@@ -420,6 +459,7 @@
 
     });
 </script>
+<%--图片上传脚本--%>
 <script>
     layui.use('upload', function(){
         var upload = layui.upload;
@@ -452,6 +492,7 @@
         });
     });
 </script>
+<%--图片放大脚本--%>
 <script>
     var renderImg = function () {
         var form = layui.form;

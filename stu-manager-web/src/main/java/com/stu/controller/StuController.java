@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -89,10 +91,18 @@ public class StuController {
             stuStudyMsg.setMajorId(majorId);
             //调用service方法
             int result = stuService.stuAdd(stuBaseMsg, stuStudyMsg);
-            if(result == 1){
-                return JsonResult.ok();
-            }else {
-                return JsonResult.build(400, "新增失败");
+            if(result == 0){
+                return JsonResult.build(400, "新增失败，请重试");
+            }else{
+                //把id转换为字符串
+                String id = String.valueOf(result);
+                //判断字符串长度，如果是7位的话前面需要补0
+                if(id.length()==7){
+                    id = "0" + id;
+                }
+                //把新增的对象返回回去
+                StuBaseMsg add_StuBaseMsg = stuService.selectByPrimaryKey(id);
+                return JsonResult.build(200, "新增成功", add_StuBaseMsg);
             }
         } catch (Exception e) {
             e.printStackTrace();

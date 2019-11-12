@@ -12,4 +12,6 @@ public interface StuService {
 
     int stuAdd(StuBaseMsg stuBaseMsg, StuStudyMsg stuStudyMsg);
 
+    StuBaseMsg selectByPrimaryKey(String id);
+
 }
