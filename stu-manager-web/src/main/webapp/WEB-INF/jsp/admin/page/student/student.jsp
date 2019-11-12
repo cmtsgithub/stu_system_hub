@@ -410,7 +410,6 @@
                             title: '新增成功'
                         });
                         var stu = data.data;
-                        alert(stu.updated);
                         //异步插入表格中
                         $("#stu_table").prepend(
                             "<tr><td><input type='checkbox' /></td><td >" + stu.id + "</td><td >" + stu.name + "</td><td >" + stu.sex + "</td><td >" + dateFormat(stu.updated) + "</td><td>"
