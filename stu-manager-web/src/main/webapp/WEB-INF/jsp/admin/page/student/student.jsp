@@ -82,7 +82,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <c:forEach var="stuBaseMsg" items="${stuBaseMsgList}">
+                                <c:forEach var="stuBaseMsg" items="${pageInfo.list}">
                                 <tr>
                                     <td><input type="checkbox" /></td>
                                     <td >${stuBaseMsg.id}</td>
@@ -124,23 +124,81 @@
 <a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 <jsp:include page="/WEB-INF/jsp/common/jsscript.jsp"></jsp:include>
 
+</body>
 <%--分页脚本--%>
 <script>
+    //时间格式化函数，此处仅针对yyyy-MM-dd hh:mm:ss 的格式进行格式化
+    var dateFormat = function(time) {
+        var date=new Date(time);
+        var year=date.getFullYear();
+        /* 在日期格式中，月份是从0开始的，因此要加0
+         * 使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
+         * */
+        var month= date.getMonth()+1<10 ? "0"+(date.getMonth()+1) : date.getMonth()+1;
+        var day=date.getDate()<10 ? "0"+date.getDate() : date.getDate();
+        var hours=date.getHours()<10 ? "0"+date.getHours() : date.getHours();
+        var minutes=date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes();
+        var seconds=date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds();
+        // 拼接
+        return year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
+    }
+
     layui.use('laypage', function(){
         var laypage = layui.laypage;
-
         //执行一个laypage实例
         laypage.render({
             elem: 'page'
-            ,count: 100
+            ,count: ${pageInfo.total}
+            ,limit: 8
             ,layout: ['count', 'first', 'prev', 'page', 'next', 'last', 'limit', 'refresh']
             ,first:'首页'
             ,last:'尾页'
-            ,jump: function(obj){
-                console.log(obj)
+            ,jump: function(obj, first){
+                //首次不执行
+                if(!first){
+                    renderTable(obj.curr, obj.limit);
+                }
             }
         });
     });
+
+    // 表格渲染函数
+    function renderTable(pageNum, pageSize) {
+        $.ajax({
+            type: "get",
+            async: true,
+            contentType: 'application/json',
+            url: "/getStuBaseMsg",
+            data:{
+                "pageNum":pageNum, "pageSize":pageSize
+            },
+            dataType:"json",
+            success: function(data){
+                //清空表格数据
+                $('tbody').empty();
+                //遍历json
+                var stuList = data.list;
+                $.each( stuList, function(index, stu)
+                {
+                    $("#stu_table").append(
+                        "<tr><td><input type='checkbox' /></td><td >" + stu.id + "</td><td >" + stu.name + "</td><td >" + stu.sex + "</td><td >" + dateFormat(stu.updated) + "</td><td>"
+                        + "<div class='am-btn-toolbar'>\n" +
+                        "    <div class='am-btn-group am-btn-group-xs'>\n" +
+                        "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary' type='button' id='edit'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
+                        "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only'><span class='am-icon-copy'></span> 复制</button>\n" +
+                        "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only'><span class='am-icon-trash-o'></span> 删除</button>\n" +
+                        "    </div>\n" +
+                        "</div>\n" +
+                        "</td>\n" +
+                        "</tr>"
+                    );
+                });
+            },
+            error: function(){
+                alert('分页数据请求失败');
+            }
+        });
+    }
 </script>
 <%--表单渲染脚本--%>
 <script>
@@ -252,7 +310,6 @@
         });
     }
 </script>
-</body>
 <%--表单--%>
 <form class="layui-form layui-form-pane" action="" id="add_form" style="margin-left: 20px">
     <div class="layui-form-item" style="margin-top: 10px">
@@ -433,22 +490,6 @@
             });
             return false;
         });
-
-        //时间格式化函数，此处仅针对yyyy-MM-dd hh:mm:ss 的格式进行格式化
-        var dateFormat = function(time) {
-            var date=new Date(time);
-            var year=date.getFullYear();
-            /* 在日期格式中，月份是从0开始的，因此要加0
-             * 使用三元表达式在小于10的前面加0，以达到格式统一  如 09:11:05
-             * */
-            var month= date.getMonth()+1<10 ? "0"+(date.getMonth()+1) : date.getMonth()+1;
-            var day=date.getDate()<10 ? "0"+date.getDate() : date.getDate();
-            var hours=date.getHours()<10 ? "0"+date.getHours() : date.getHours();
-            var minutes=date.getMinutes()<10 ? "0"+date.getMinutes() : date.getMinutes();
-            var seconds=date.getSeconds()<10 ? "0"+date.getSeconds() : date.getSeconds();
-            // 拼接
-            return year+"-"+month+"-"+day+" "+hours+":"+minutes+":"+seconds;
-        }
 
         //表单取值
         layui.$('#LAY-component-form-getval').on('click', function(){

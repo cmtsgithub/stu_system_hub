@@ -1,5 +1,7 @@
 package com.stu.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.stu.mapper.StuBaseMsgMapper;
 import com.stu.mapper.StuStudyMsgMapper;
 import com.stu.pojo.StuBaseMsg;
@@ -99,5 +101,22 @@ public class StuServiceImpl implements StuService {
     @Override
     public StuBaseMsg selectByPrimaryKey(String id) {
         return stuBaseMsgMapper.selectByPrimaryKey(id);
+    }
+
+    /**
+     * 查询学生信息带分页显示
+     * @param pageNum 当前页码
+     * @param pageSize 页面最大容量
+     * @return PageInfo
+     */
+    @Override
+    public PageInfo selectStuBaseMsgByPageNum(int pageNum, int pageSize) {
+        //设置分页参数
+        PageHelper.startPage(pageNum, pageSize);
+        //获得学生列表
+        List<StuBaseMsg> stuBaseMsgList = selectStuBaseMsgAll();
+        //设置PageInfo
+        PageInfo<StuBaseMsg> pageInfo = new PageInfo<>(stuBaseMsgList);
+        return pageInfo;
     }
 }

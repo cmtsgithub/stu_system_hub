@@ -1,5 +1,6 @@
 package com.stu.service;
 
+import com.github.pagehelper.PageInfo;
 import com.stu.pojo.StuBaseMsg;
 import com.stu.pojo.StuStudyMsg;
 import com.stu.utils.JsonResult;
@@ -13,5 +14,7 @@ public interface StuService {
     int stuAdd(StuBaseMsg stuBaseMsg, StuStudyMsg stuStudyMsg);
 
     StuBaseMsg selectByPrimaryKey(String id);
+
+    PageInfo selectStuBaseMsgByPageNum(int pageNum, int pageSize);
 
 }

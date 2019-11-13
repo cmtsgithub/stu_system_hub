@@ -1,21 +1,18 @@
 package com.stu.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.stu.pojo.StuBaseMsg;
 import com.stu.pojo.StuStudyMsg;
 import com.stu.service.StuService;
 import com.stu.utils.BeanMapUtils;
 import com.stu.utils.DateUtils;
 import com.stu.utils.JsonResult;
+import com.stu.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -26,14 +23,18 @@ public class StuController {
 
     /**
      * 获取所有学生基本信息 StuBaseMsg
-     * @param model model
-     * @return jsp页面
+     * @param pageNum 当前页
+     * @param pageSize 页面最大容量
+     * @return
      */
     @RequestMapping("/getStuBaseMsg")
-    public String getStuBaseMsg(Model model){
-        List<StuBaseMsg> stuBaseMsgList = stuService.selectStuBaseMsgAll();
-        model.addAttribute("stuBaseMsgList", stuBaseMsgList);
-        return "student/student";
+    @ResponseBody
+    public String getStuBaseMsg(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "8") int pageSize){
+        //获得PageInfo
+        PageInfo pageInfo = stuService.selectStuBaseMsgByPageNum(pageNum, pageSize);
+        //把pageInfo转换为Json对象
+        String json = JsonUtils.objectToJson(pageInfo);
+        return json;
     }
 
     /**

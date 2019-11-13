@@ -118,6 +118,11 @@
         <artifactId>slf4j-log4j12</artifactId>
         <version>${slf4j.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.github.jsqlparser</groupId>
+        <artifactId>jsqlparser</artifactId>
+        <version>${jsqlparser.version}</version>
+      </dependency>
       <!-- Mybatis -->
       <dependency>
         <groupId>org.mybatis</groupId>
