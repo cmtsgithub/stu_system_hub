@@ -119,4 +119,24 @@ public class StuServiceImpl implements StuService {
         PageInfo<StuBaseMsg> pageInfo = new PageInfo<>(stuBaseMsgList);
         return pageInfo;
     }
+
+    /**
+     * 更新学生学籍状态
+     * @param id 学号
+     * @param status 1为在读 2为毕业 3为退学
+     * @return
+     */
+    @Override
+    public int updateStuStudyStatus(String id, Integer status) {
+        //获取该id对应的StuStudyMsg对象
+        StuStudyMsg stuStudyMsg = stuStudyMsgMapper.selectByStuId(id);
+        //改变StuStudyMsg对象中的study_status属性 ，改为3  3为退学状态
+        stuStudyMsg.setStudyStatus(status);
+        //修改StuStudyMsg的update属性
+        stuStudyMsg.setUpdated(DateUtils.getNow());
+        //提交
+        int result = stuStudyMsgMapper.updateByPrimaryKeySelective(stuStudyMsg);
+        //修改成功返回 1， 修改失败返回 0
+        return result;
+    }
 }

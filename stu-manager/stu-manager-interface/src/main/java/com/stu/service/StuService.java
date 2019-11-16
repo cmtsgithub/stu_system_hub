@@ -17,4 +17,6 @@ public interface StuService {
 
     PageInfo selectStuBaseMsgByPageNum(int pageNum, int pageSize);
 
+    int updateStuStudyStatus(String id, Integer status);
+
 }

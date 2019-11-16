@@ -10,7 +10,6 @@ import com.stu.utils.JsonResult;
 import com.stu.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -108,6 +107,35 @@ public class StuController {
         } catch (Exception e) {
             e.printStackTrace();
             return JsonResult.build(400, "新增失败");
+        }
+    }
+
+    /**
+     * 更改学生状态
+     * @param id 学号
+     * @param status 1为在读 2为毕业 3为退学
+     * @return JsonResult
+     */
+    @RequestMapping(value = "/stuStatus/{id}/{status}", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResult updateStuStatus(@PathVariable String id, @PathVariable Integer status){
+        //查看此Id是否存在
+        //id补0
+        if(id.length() == 7){
+            id = "0" + id;
+        }
+        StuBaseMsg stuBaseMsg = stuService.selectByPrimaryKey(id);
+        if(stuBaseMsg == null){
+            return JsonResult.build(400, "学号不存在!");
+        }
+        //若存在，调用更新学籍状态更新方法
+        int result = stuService.updateStuStudyStatus(id, status);
+        //接受更新结果
+        if(result == 1){
+            //返回Json对象
+            return JsonResult.ok();
+        }else{
+            return JsonResult.build(400, "更新失败，请重试!");
         }
     }
 }

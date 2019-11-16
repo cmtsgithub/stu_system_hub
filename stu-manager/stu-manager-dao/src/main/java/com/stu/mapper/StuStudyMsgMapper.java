@@ -18,4 +18,6 @@ public interface StuStudyMsgMapper {
     int updateByPrimaryKeySelective(StuStudyMsg record);
 
     int updateByPrimaryKey(StuStudyMsg record);
+
+    StuStudyMsg selectByStuId(String id);
 }

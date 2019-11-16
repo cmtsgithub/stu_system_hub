@@ -55,7 +55,7 @@
                  <value>classpath:com/stu/mapper/*.xml</value>
             </array>
         </property>
-<!--         pageHelper插件拦截器-->
+		<!-- pageHelper插件拦截器 -->
         <property name="plugins">
 		    <array>
 		      <bean class="com.github.pagehelper.PageInterceptor" >

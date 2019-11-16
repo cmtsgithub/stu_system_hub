@@ -26,6 +26,8 @@ public class StuStudyMsg implements Serializable {
 
     private String category;
 
+    private Date updated;
+
     public Integer getId() {
         return id;
     }
@@ -112,5 +114,14 @@ public class StuStudyMsg implements Serializable {
 
     public void setCategory(String category) {
         this.category = category == null ? null : category.trim();
+    }
+
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
     }
 }

@@ -93,8 +93,8 @@
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
                                                 <button class="am-btn am-btn-default am-btn-xs am-text-secondary" type="button" id="edit"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                                                <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
-                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" type='button'><span class="am-icon-copy"></span> 复制</button>
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" type='button' onclick="deleteStu(this)" value="${stuBaseMsg.id}"><span class="am-icon-trash-o"></span> 删除</button>
                                             </div>
                                         </div>
                                     </td>
@@ -185,8 +185,8 @@
                         + "<div class='am-btn-toolbar'>\n" +
                         "    <div class='am-btn-group am-btn-group-xs'>\n" +
                         "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary' type='button' id='edit'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
-                        "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only'><span class='am-icon-copy'></span> 复制</button>\n" +
-                        "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only'><span class='am-icon-trash-o'></span> 删除</button>\n" +
+                        "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only' type='button'><span class='am-icon-copy'></span> 复制</button>\n" +
+                        "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only' type='button' onclick='deleteStu(this)'><span class='am-icon-trash-o'></span> 删除</button>\n" +
                         "    </div>\n" +
                         "</div>\n" +
                         "</td>\n" +
@@ -196,6 +196,34 @@
             },
             error: function(){
                 alert('分页数据请求失败');
+            }
+        });
+    }
+</script>
+<%--删除学生脚本--%>
+<script>
+    function deleteStu(e) {
+        var id = $(e).parent().parent().parent().parent().children()[1].innerHTML;
+        var children = $(e).parent().parent().parent().parent().children();
+        $.ajax({
+            url: '/stuStatus/' + id + "/" + 3,
+            async : true,
+            type: 'POST',
+            dataType: 'json',
+            success: function (data) {
+                if(data.status == 200){
+                    layer.alert(data.msg, {
+                        title: '删除学号为:' + id + '成功'
+                    });
+                    //增加样式
+                    for (var i=0; i<5; i++){
+                        $(children[i]).css('color', 'red').css('text-decoration', 'line-through');
+                    }
+                }else{
+                    layer.alert(data.msg, {
+                        title: '删除学号为:' + id + '失败'
+                    });
+                }
             }
         });
     }
@@ -473,14 +501,18 @@
                              + "<div class='am-btn-toolbar'>\n" +
                             "    <div class='am-btn-group am-btn-group-xs'>\n" +
                             "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary' type='button' id='edit'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
-                            "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only'><span class='am-icon-copy'></span> 复制</button>\n" +
-                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only'><span class='am-icon-trash-o'></span> 删除</button>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only' type='button'><span class='am-icon-copy'></span> 复制</button>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only' type='button' onclick='deleteStu(this)'><span class='am-icon-trash-o'></span> 删除</button>\n" +
                             "    </div>\n" +
                             "</div>\n" +
                             "</td>\n" +
                             "</tr>"
-
                         );
+                        //增加样式
+                        var children = $("tr")[1].children;
+                        for (var i=0; i<5; i++){
+                            $(children[i]).css('color', 'green');
+                        }
                     } else {
                         layer.alert(data.msg, {
                             title: '新增失败'
