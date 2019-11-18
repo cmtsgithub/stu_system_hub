@@ -18,6 +18,23 @@
     <result column="updated" property="updated" jdbcType="TIMESTAMP" />
     <result column="password" property="password" jdbcType="VARCHAR" />
   </resultMap>
+  <resultMap id="QueryVoMap" type="com.stu.pojo.StuBaseMsg" >
+    <id column="msg_table_id" property="id" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="VARCHAR" />
+    <result column="certificate_type" property="certificateType" jdbcType="VARCHAR" />
+    <result column="certificate_number" property="certificateNumber" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="politics_status" property="politicsStatus" jdbcType="VARCHAR" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="ancestral_home" property="ancestralHome" jdbcType="VARCHAR" />
+    <result column="enrollment_date" property="enrollmentDate" jdbcType="TIMESTAMP" />
+    <result column="reg_permanent_residence" property="regPermanentResidence" jdbcType="VARCHAR" />
+    <result column="msg_table_created" property="created" jdbcType="TIMESTAMP" />
+    <result column="msg_table_updated" property="updated" jdbcType="TIMESTAMP" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+  </resultMap>
   <sql id="Base_Column_List" >
     id, name, sex, certificate_type, certificate_number, birthday, nation, politics_status, 
     image, ancestral_home, enrollment_date, reg_permanent_residence, created, updated, 
@@ -33,6 +50,12 @@
     select
     <include refid="Base_Column_List" />
     from stu_base_msg
+  </select>
+  <select id="selectByStatus" resultMap="QueryVoMap" parameterType="java.lang.Integer">
+    select stu_base_msg.`id` msg_table_id, name, sex, certificate_type, certificate_number, birthday, nation, politics_status,
+    image, ancestral_home, enrollment_date, reg_permanent_residence, stu_base_msg.`created` msg_table_created, stu_base_msg.`updated` msg_table_updated,
+    password from stu_base_msg, stu_study_msg where stu_base_msg.`id` = stu_study_msg.`stu_id`
+    AND stu_study_msg.`study_status` = ${value }
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from stu_base_msg

@@ -107,14 +107,15 @@ public class StuServiceImpl implements StuService {
      * 查询学生信息带分页显示
      * @param pageNum 当前页码
      * @param pageSize 页面最大容量
+     * @param status 学籍状态
      * @return PageInfo
      */
     @Override
-    public PageInfo selectStuBaseMsgByPageNum(int pageNum, int pageSize) {
+    public PageInfo selectStuBaseMsgByPageNum(int pageNum, int pageSize, int status) {
         //设置分页参数
         PageHelper.startPage(pageNum, pageSize);
         //获得学生列表
-        List<StuBaseMsg> stuBaseMsgList = selectStuBaseMsgAll();
+        List<StuBaseMsg> stuBaseMsgList = selectByStatus(status);
         //设置PageInfo
         PageInfo<StuBaseMsg> pageInfo = new PageInfo<>(stuBaseMsgList);
         return pageInfo;
@@ -138,5 +139,15 @@ public class StuServiceImpl implements StuService {
         int result = stuStudyMsgMapper.updateByPrimaryKeySelective(stuStudyMsg);
         //修改成功返回 1， 修改失败返回 0
         return result;
+    }
+
+    /**
+     * 通过学籍状态来查询学生
+     * @param status 学籍状态
+     * @return
+     */
+    @Override
+    public List<StuBaseMsg> selectByStatus(Integer status) {
+        return stuBaseMsgMapper.selectByStatus(status);
     }
 }

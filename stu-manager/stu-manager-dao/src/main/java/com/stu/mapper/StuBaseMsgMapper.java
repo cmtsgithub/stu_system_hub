@@ -20,4 +20,6 @@ public interface StuBaseMsgMapper {
     int updateByPrimaryKey(StuBaseMsg record);
 
     List<StuBaseMsg> selectAll();
+
+    List<StuBaseMsg> selectByStatus(Integer status);
 }

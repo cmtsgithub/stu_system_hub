@@ -22,15 +22,16 @@ public class StuController {
 
     /**
      * 获取所有学生基本信息 StuBaseMsg
-     * @param pageNum 当前页
-     * @param pageSize 页面最大容量
+     * @param status 学籍状态， 默认为1
+     * @param pageNum 当前页 默认为1
+     * @param pageSize 页面最大容量 默认为8
      * @return
      */
     @RequestMapping("/getStuBaseMsg")
     @ResponseBody
-    public String getStuBaseMsg(@RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "8") int pageSize){
+    public String getStuBaseMsg(@RequestParam(defaultValue = "1") Integer status, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "8") int pageSize){
         //获得PageInfo
-        PageInfo pageInfo = stuService.selectStuBaseMsgByPageNum(pageNum, pageSize);
+        PageInfo pageInfo = stuService.selectStuBaseMsgByPageNum(pageNum, pageSize, status);
         //把pageInfo转换为Json对象
         String json = JsonUtils.objectToJson(pageInfo);
         return json;

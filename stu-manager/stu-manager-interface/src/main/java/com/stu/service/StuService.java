@@ -15,8 +15,10 @@ public interface StuService {
 
     StuBaseMsg selectByPrimaryKey(String id);
 
-    PageInfo selectStuBaseMsgByPageNum(int pageNum, int pageSize);
+    PageInfo selectStuBaseMsgByPageNum(int pageNum, int pageSize, int status);
 
     int updateStuStudyStatus(String id, Integer status);
+
+    List<StuBaseMsg> selectByStatus(Integer status);
 
 }

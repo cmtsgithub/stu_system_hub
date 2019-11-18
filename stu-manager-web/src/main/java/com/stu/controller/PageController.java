@@ -23,9 +23,9 @@ public class PageController {
      * @return
      */
     @RequestMapping(value = "/stuBaseMsgPage", method = RequestMethod.GET)
-    public String stuBaseMsgPage(Model model, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "8") int pageSize){
+    public String stuBaseMsgPage(Model model, @RequestParam(defaultValue = "1") Integer status, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "8") int pageSize){
         //获得PageInfo
-        PageInfo pageInfo = stuService.selectStuBaseMsgByPageNum(pageNum, pageSize);
+        PageInfo pageInfo = stuService.selectStuBaseMsgByPageNum(pageNum, pageSize, status);
         model.addAttribute("pageInfo", pageInfo);
         return "student/student";
     }

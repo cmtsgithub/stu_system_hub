@@ -92,7 +92,7 @@
                                     <td>
                                         <div class="am-btn-toolbar">
                                             <div class="am-btn-group am-btn-group-xs">
-                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary" type="button" id="edit"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary edit" type="button"><span class="am-icon-pencil-square-o"></span> 编辑</button>
                                                 <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only" type='button'><span class="am-icon-copy"></span> 复制</button>
                                                 <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only" type='button' onclick="deleteStu(this)" value="${stuBaseMsg.id}"><span class="am-icon-trash-o"></span> 删除</button>
                                             </div>
@@ -184,7 +184,7 @@
                         "<tr><td><input type='checkbox' /></td><td >" + stu.id + "</td><td >" + stu.name + "</td><td >" + stu.sex + "</td><td >" + dateFormat(stu.updated) + "</td><td>"
                         + "<div class='am-btn-toolbar'>\n" +
                         "    <div class='am-btn-group am-btn-group-xs'>\n" +
-                        "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary' type='button' id='edit'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
+                        "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary edit' type='button'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
                         "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only' type='button'><span class='am-icon-copy'></span> 复制</button>\n" +
                         "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only' type='button' onclick='deleteStu(this)'><span class='am-icon-trash-o'></span> 删除</button>\n" +
                         "    </div>\n" +
@@ -193,6 +193,7 @@
                         "</tr>"
                     );
                 });
+                renderForm();
             },
             error: function(){
                 alert('分页数据请求失败');
@@ -205,25 +206,34 @@
     function deleteStu(e) {
         var id = $(e).parent().parent().parent().parent().children()[1].innerHTML;
         var children = $(e).parent().parent().parent().parent().children();
-        $.ajax({
-            url: '/stuStatus/' + id + "/" + 3,
-            async : true,
-            type: 'POST',
-            dataType: 'json',
-            success: function (data) {
-                if(data.status == 200){
-                    layer.alert(data.msg, {
-                        title: '删除学号为:' + id + '成功'
-                    });
-                    //增加样式
-                    for (var i=0; i<5; i++){
-                        $(children[i]).css('color', 'red').css('text-decoration', 'line-through');
+        //配置一个透明的询问框
+        layer.msg('确定要删除吗？请三思哦！', {
+            time: 20000, //20s后自动关闭
+            btn: ['确认删除', '我去三思', '不删了'],
+            yes:function () {
+                $.ajax({
+                    url: '/stuStatus/' + id + "/" + 3,
+                    async : true,
+                    type: 'POST',
+                    dataType: 'json',
+                    success: function (data) {
+                        if(data.status == 200){
+                            layer.msg('删除学号为:' + id + '成功', {
+                                time: 20000, //20s后自动关闭
+                                btn: ['好的']
+                            });
+                            //增加样式
+                            for (var i=0; i<5; i++){
+                                $(children[i]).css('color', 'red').css('text-decoration', 'line-through');
+                            }
+                        }else{
+                            layer.msg('删除学号为:' + id + '失败', {
+                                time: 20000, //20s后自动关闭
+                                btn: ['好的']
+                            });
+                        }
                     }
-                }else{
-                    layer.alert(data.msg, {
-                        title: '删除学号为:' + id + '失败'
-                    });
-                }
+                });
             }
         });
     }
@@ -257,7 +267,7 @@
 <script>
     layui.use("layer", function () {
         var layer = layui.layer;
-        $("#add, #edit").click(function () {
+        $("#add").click(function () {
             $("#academy_select").empty();
             //发送ajax请求获取院系，专业列表
             $.ajax({
@@ -287,14 +297,6 @@
                 title: '新增学生',
                 area: ['1000px', '600px'],
                 content: $('#add_form') //这里content是一个普通的String
-            });
-        });
-        //删除监听函数
-        $("#del").click(function(){
-            //配置一个透明的询问框
-            layer.msg('确定要删除吗？请三思哦！', {
-                time: 20000, //20s后自动关闭
-                btn: ['确认删除', '我去三思', '不删了']
             });
         });
     });
@@ -500,7 +502,7 @@
                             "<tr><td><input type='checkbox' /></td><td >" + stu.id + "</td><td >" + stu.name + "</td><td >" + stu.sex + "</td><td >" + dateFormat(stu.updated) + "</td><td>"
                              + "<div class='am-btn-toolbar'>\n" +
                             "    <div class='am-btn-group am-btn-group-xs'>\n" +
-                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary' type='button' id='edit'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary edit' type='button'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
                             "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only' type='button'><span class='am-icon-copy'></span> 复制</button>\n" +
                             "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only' type='button' onclick='deleteStu(this)'><span class='am-icon-trash-o'></span> 删除</button>\n" +
                             "    </div>\n" +
