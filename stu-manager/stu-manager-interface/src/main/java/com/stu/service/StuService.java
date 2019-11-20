@@ -25,4 +25,6 @@ public interface StuService {
 
     int updateStuBaseMsgByPrimaryKeySelective(StuBaseMsg stuBaseMsg);
 
+    int updateStuStudyMsgByPrimaryKeySelective(StuStudyMsg stuStudyMsg);
+
 }

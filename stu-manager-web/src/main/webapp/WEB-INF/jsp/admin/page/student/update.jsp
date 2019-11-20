@@ -162,19 +162,21 @@
                         </div>
                         <div class="layui-tab-item">
                             <form class="layui-form layui-form-pane" action="" id="update_form_study" style="margin-left: 20px">
-                                <input type="hidden" name="stuId" lay-verify="title" autocomplete="off" placeholder="" class="layui-input">
+                                <input type="hidden" name="id" value="${stuStudyMsg.id}" />
+                                <input type="hidden" name="updated" value="<fmt:formatDate value="${stuStudyMsg.updated}" pattern="yyyy-MM-dd HH:mm:ss"/>">
                                 <div class="layui-form-item" style="margin-top: 10px">
                                     <div class="layui-inline">
                                         <label class="layui-form-label">学年</label>
                                         <div class="layui-input-inline">
                                             <select name="semester" lay-filter="semester">
-                                                <option value="2020-2021">2020-2021</option>
-                                                <option value="2019-2020">2019-2020</option>
-                                                <option value="2018-2019">2018-2019</option>
-                                                <option value="2017-2018">2017-2018</option>
-                                                <option value="2016-2017">2016-2017</option>
-                                                <option value="2015-2016">2015-2016</option>
-                                                <option value="2014-2015">2014-2015</option>
+                                                <option value="" selected="selected">暂未设置</option>
+                                                <option value="2020-2021" <c:if test="${stuStudyMsg.semester eq '2020-2021'}">selected="selected"</c:if>>2020-2021</option>
+                                                <option value="2019-2020" <c:if test="${stuStudyMsg.semester eq '2019-2020'}">selected="selected"</c:if>>2019-2020</option>
+                                                <option value="2018-2019" <c:if test="${stuStudyMsg.semester eq '2018-2019'}">selected="selected"</c:if>>2018-2019</option>
+                                                <option value="2017-2018" <c:if test="${stuStudyMsg.semester eq '2017-2018'}">selected="selected"</c:if>>2017-2018</option>
+                                                <option value="2016-2017" <c:if test="${stuStudyMsg.semester eq '2016-2017'}">selected="selected"</c:if>>2016-2017</option>
+                                                <option value="2015-2016" <c:if test="${stuStudyMsg.semester eq '2015-2016'}">selected="selected"</c:if>>2015-2016</option>
+                                                <option value="2014-2015" <c:if test="${stuStudyMsg.semester eq '2014-2015'}">selected="selected"</c:if>>2014-2015</option>
                                             </select>
                                         </div>
                                     </div>
@@ -182,8 +184,9 @@
                                         <label class="layui-form-label">学期</label>
                                         <div class="layui-input-inline">
                                             <select name="term" lay-filter="term">
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
+                                                <option value="" selected="selected">暂未设置</option>
+                                                <option value="1" <c:if test="${stuStudyMsg.term eq '1'}">selected="selected"</c:if>>1</option>
+                                                <option value="2" <c:if test="${stuStudyMsg.term eq '2'}">selected="selected"</c:if>>2</option>
                                             </select>
                                         </div>
                                     </div>
@@ -192,16 +195,14 @@
                                     <div class="layui-inline">
                                         <label class="layui-form-label">院系</label>
                                         <div class="layui-input-inline">
-                                            <select name="nation" lay-filter="aihao">
-                                                <option value="汉族">计算机学院</option>
+                                            <select name="academyId" lay-filter="academy" id="academy_select">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="layui-inline">
                                         <label class="layui-form-label">专业</label>
                                         <div class="layui-input-inline">
-                                            <select name="nation" lay-filter="aihao">
-                                                <option value="汉族">计算机科学与技术</option>
+                                            <select name="majorId" lay-filter="major" id="major_select">
                                             </select>
                                         </div>
                                     </div>
@@ -210,16 +211,21 @@
                                     <div class="layui-inline">
                                         <label class="layui-form-label">学籍状态</label>
                                         <div class="layui-input-inline">
-                                            <select name="nation" lay-filter="aihao">
-                                                <option value="1">在读</option>
+                                            <select name="studyStatus" lay-filter="aihao">
+                                                <option value="" selected="selected">暂未设置</option>
+                                                <option value="1" <c:if test="${stuStudyMsg.studyStatus==1}">selected="selected" </c:if>>在读</option>
+                                                <option value="2" <c:if test="${stuStudyMsg.studyStatus==2}">selected="selected" </c:if>>毕业</option>
+                                                <option value="3" <c:if test="${stuStudyMsg.studyStatus==3}">selected="selected" </c:if>>退学</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="layui-inline">
                                         <label class="layui-form-label">是否在校</label>
                                         <div class="layui-input-inline">
-                                            <select name="nation" lay-filter="aihao">
-                                                <option value="1">是</option>
+                                            <select name="isInSchool" lay-filter="aihao">
+                                                <option value="" selected="selected">暂未设置</option>
+                                                <option value="1" <c:if test="${stuStudyMsg.isInSchool==1}">selected="selected" </c:if>>在校</option>
+                                                <option value="2" <c:if test="${stuStudyMsg.isInSchool==2}">selected="selected" </c:if>>离校</option>
                                             </select>
                                         </div>
                                     </div>
@@ -228,16 +234,26 @@
                                     <div class="layui-inline">
                                         <label class="layui-form-label">学历层次</label>
                                         <div class="layui-input-inline">
-                                            <select name="nation" lay-filter="aihao">
-                                                <option value="汉族">本科</option>
+                                            <select name="educationLevel" lay-filter="aihao">
+                                                <option value="" selected="selected">暂未设置</option>
+                                                <option value="专科" <c:if test="${stuStudyMsg.educationLevel == '专科'}">selected="selected"</c:if>>专科</option>
+                                                <option value="本科" <c:if test="${stuStudyMsg.educationLevel == '本科'}">selected="selected"</c:if>>本科</option>
+                                                <option value="研究生" <c:if test="${stuStudyMsg.educationLevel == '研究生'}">selected="selected"</c:if>>研究生</option>
+                                                <option value="博士" <c:if test="${stuStudyMsg.educationLevel == '博士'}">selected="selected"</c:if>>博士</option>
+                                                <option value="博士后" <c:if test="${stuStudyMsg.educationLevel == '博士后'}">selected="selected"</c:if>>博士后</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="layui-inline">
                                         <label class="layui-form-label">培养层次</label>
                                         <div class="layui-input-inline">
-                                            <select name="nation" lay-filter="aihao">
-                                                <option value="汉族">本科</option>
+                                            <select name="cultivateLevel" lay-filter="aihao">
+                                                <option value="" selected="selected">暂未设置</option>
+                                                <option value="专科" <c:if test="${stuStudyMsg.cultivateLevel == '专科'}">selected="selected"</c:if>>专科</option>
+                                                <option value="本科" <c:if test="${stuStudyMsg.cultivateLevel == '本科'}">selected="selected"</c:if>>本科</option>
+                                                <option value="研究生" <c:if test="${stuStudyMsg.cultivateLevel == '研究生'}">selected="selected"</c:if>>研究生</option>
+                                                <option value="博士" <c:if test="${stuStudyMsg.cultivateLevel == '博士'}">selected="selected"</c:if>>博士</option>
+                                                <option value="博士后" <c:if test="${stuStudyMsg.cultivateLevel == '博士后'}">selected="selected"</c:if>>博士后</option>
                                             </select>
                                         </div>
                                     </div>
@@ -246,15 +262,17 @@
                                     <div class="layui-inline">
                                         <label class="layui-form-label">学生类别</label>
                                         <div class="layui-input-inline">
-                                            <select name="nation" lay-filter="aihao">
-                                                <option value="汉族">普通本科生</option>
+                                            <select name="category" lay-filter="aihao">
+                                                <option value="" selected="selected">暂未设置</option>
+                                                <option value="普通本科生" <c:if test="${stuStudyMsg.category == '普通本科生'}">selected="selected"</c:if>>普通本科生</option>
+                                                <option value="专插本" <c:if test="${stuStudyMsg.category == '专插本'}">selected="selected"</c:if>>专插本</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="layui-form-item">
                                     <div class="layui-input-block">
-                                        <button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
+                                        <button type="submit" class="layui-btn" lay-submit="" lay-filter="submit_study_form">立即提交</button>
                                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                                     </div>
                                 </div>
@@ -285,6 +303,112 @@
             console.log(data);
         });
     });
+</script>
+<%--表单渲染脚本--%>
+<script>
+    //自动渲染一次表单
+    layui.use('form', function(){
+        var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+        //……
+
+        //但是，如果你的HTML是动态生成的，自动渲染就会失效
+        //因此你需要在相应的地方，执行下述方法来进行渲染
+        form.render();
+    });
+    //表单渲染函数
+    function renderForm(){
+        layui.use('form', function(){
+            var form = layui.form; //只有执行了这一步，部分表单元素才会自动修饰成功
+
+            //……
+
+            //但是，如果你的HTML是动态生成的，自动渲染就会失效
+            //因此你需要在相应的地方，执行下述方法来进行渲染
+            form.render();
+        });
+    }
+</script>
+<%--获取院系列表--%>
+<script>
+    layui.use("layer", function () {
+        var layer = layui.layer;
+        $("#academy_select").empty();
+        //发送ajax请求获取院系，专业列表
+        $.ajax({
+            type: "get",
+            async: true,
+            url: "http://localhost:8083/getStuAcademies",
+            dataType: "jsonp",
+            jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+            success: function(json){
+                var str = "";
+                var academyId = ${stuStudyMsg.academyId};
+                $.each( json, function(index, content)
+                {
+                    //为Select追加一个Option(下拉项)
+                    if (academyId == content.id){
+                        str = "<option value=" + content.id + " selected=\"selected\">" + content.name + "</option>";
+                    } else {
+                        str = "<option value=" + content.id + ">" + content.name + "</option>";
+                    }
+                    $("#academy_select").append(str);
+                });
+                //请求专业列表
+                getMajors($('#academy_select option:selected') .val());
+                //渲染表单
+                renderForm();
+            },
+            error: function(){
+                alert('院系列表请求失败');
+            }
+        });
+    });
+</script>
+<%--院系联动脚本--%>
+<script>
+    //监听院系变化select框
+    layui.use('form', function () {
+        var form = layui.form;
+        form.on('select(academy)', function(data){
+            getMajors(data.value);
+            form.render('select');
+        });
+    });
+    /**
+     * 获取专业的函数
+     * @param data 院系id
+     */
+    function getMajors(data) {
+        //发送ajax请求获取院系，专业列表
+        $("#major_select").empty();
+        $.ajax({
+            type: "get",
+            async: true,
+            url: "http://localhost:8083/getMajors?academyId=" + data,
+            dataType: "jsonp",
+            jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+            success: function(json){
+                var str = "";
+                var majarId = ${stuStudyMsg.majorId};
+                $.each( json, function(index, content)
+                {
+                    //为Select追加一个Option(下拉项)
+                    if(majarId == content.id){
+                        str = "<option value=" + content.id + " selected=\"selected\">" + content.name + "</option>";
+                    }else{
+                        str = "<option value=" + content.id + ">" + content.name + "</option>";
+                    }
+                    $("#major_select").append(str);
+                });
+                //渲染表单
+                renderForm();
+            },
+            error: function(){
+                alert('专业列表请求失败');
+            }
+        });
+    }
 </script>
 <%--表单提交事件--%>
 <script>
@@ -326,6 +450,34 @@
                         layer.alert(data.msg, {
                             title: '修改成功'
                         });
+                        //刷新当前页面
+                        $(location).reload();
+                    } else {
+                        layer.alert(data.msg, {
+                            title: '修改失败'
+                        });
+                    }
+                }
+            });
+            return false;
+        });
+
+        //监听提交
+        form.on('submit(submit_study_form)', function(data){
+            $.ajax({
+                url : "/update/stuStudyMsg",
+                type : "POST",
+                contentType: 'application/json',
+                async : true,
+                data : JSON.stringify(data.field),
+                dataType : 'json',
+                success : function(data) {
+                    if (data.status == 200) {
+                        layer.alert(data.msg, {
+                            title: '修改成功'
+                        });
+                        //刷新当前页面
+                        $(location).reload();
                     } else {
                         layer.alert(data.msg, {
                             title: '修改失败'

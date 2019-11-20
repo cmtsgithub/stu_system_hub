@@ -146,7 +146,7 @@ public class StuController {
      * @return Json
      */
     @ResponseBody
-    @RequestMapping(value = "/update/stuBaseMsg")
+    @RequestMapping(value = "/update/stuBaseMsg", method = RequestMethod.POST)
     public JsonResult updateStuBaseMsg(@RequestBody StuBaseMsg stuBaseMsg){
         //调用服务层方法
         int result = stuService.updateStuBaseMsgByPrimaryKeySelective(stuBaseMsg);
@@ -158,5 +158,26 @@ public class StuController {
         else
             return JsonResult.build(400, "更新失败，原因未知，请重试");
     }
+
+    /**
+     * 更新学生学籍信息
+     * @param stuStudyMsg 映射对象
+     * @return Json
+     */
+    @ResponseBody
+    @RequestMapping(value = "/update/stuStudyMsg", method = RequestMethod.POST)
+    public JsonResult updateStuStudyMsg(@RequestBody StuStudyMsg stuStudyMsg){
+        //调用服务层方法
+        int result = stuService.updateStuStudyMsgByPrimaryKeySelective(stuStudyMsg);
+        //返回Json对象
+        if(result == 1){
+            return JsonResult.ok();
+        } else if (result == -1){
+            return JsonResult.build(400, "学籍信息已过期，请重新获取");
+        } else {
+            return JsonResult.build(400, "更新失败，原因未知，请重试");
+        }
+    }
+
 }
 

@@ -164,7 +164,7 @@ public class StuServiceImpl implements StuService {
     /**
      * 更新StuBaseMsg对象
      * @param stuBaseMsg 需要更新的对象
-     * @return  1 更新成功   0 更新失败   -1 当前更新对象没有获取最新信息
+     * @return  1 更新成功   0 更新失败   -1 当前更新对象已过期
      */
     @Override
     public int updateStuBaseMsgByPrimaryKeySelective(StuBaseMsg stuBaseMsg) {
@@ -187,5 +187,30 @@ public class StuServiceImpl implements StuService {
         else{
             return -1;
         }
+    }
+
+    /**
+     * 更新学生学籍信息
+     * @param stuStudyMsg 对象
+     * @return 1 更新成功 0 更新失败 -1 当前更新对象已过期
+     */
+    @Override
+    public int updateStuStudyMsgByPrimaryKeySelective(StuStudyMsg stuStudyMsg) {
+        //获取主键
+        Integer id = stuStudyMsg.getId();
+        //从数据库查询最新对象
+        StuStudyMsg record = stuStudyMsgMapper.selectByPrimaryKey(id);
+        //比对update
+        String record_updated = DateUtils.dateToStrLong(record.getUpdated());
+        String page_updated = DateUtils.dateToStrLong(stuStudyMsg.getUpdated());
+        //update不相等，返回 -1
+        if(!record_updated.equals(page_updated))
+            return -1;
+        //更新updated时间
+        stuStudyMsg.setUpdated(DateUtils.getNow());
+        //调用Mapper层方法
+        int result = stuStudyMsgMapper.updateByPrimaryKeySelective(stuStudyMsg);
+        //更新成功，返回 1  更新失败，返回 0
+        return result;
     }
 }

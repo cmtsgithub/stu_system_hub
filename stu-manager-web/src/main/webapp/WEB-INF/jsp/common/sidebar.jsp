@@ -29,7 +29,7 @@
             <li class="admin-parent">
                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav1'}"><span class="am-icon-table"></span> 学生管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav1">
-                    <li><a href="../../html/table_basic.html" class="am-cf"> <span>学生列表</span></a></li>
+                    <li><a href="/stuBaseMsgPage" class="am-cf"> <span>学生列表</span></a></li>
                     <li><a href="../../html/table_complete.html">查询学生</a></li>
                 </ul>
             </li>
