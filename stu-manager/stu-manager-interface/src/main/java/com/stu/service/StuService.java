@@ -21,4 +21,8 @@ public interface StuService {
 
     List<StuBaseMsg> selectByStatus(Integer status);
 
+    StuStudyMsg selectByStuId(String id);
+
+    int updateStuBaseMsgByPrimaryKeySelective(StuBaseMsg stuBaseMsg);
+
 }

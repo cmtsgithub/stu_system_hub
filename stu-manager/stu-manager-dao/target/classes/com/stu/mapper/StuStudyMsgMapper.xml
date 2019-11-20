@@ -4,7 +4,7 @@
   <resultMap id="BaseResultMap" type="com.stu.pojo.StuStudyMsg" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="stu_id" property="stuId" jdbcType="CHAR" />
-    <result column="semester" property="semester" jdbcType="TIMESTAMP" />
+    <result column="semester" property="semester" jdbcType="VARCHAR" />
     <result column="term" property="term" jdbcType="INTEGER" />
     <result column="academy_id" property="academyId" jdbcType="INTEGER" />
     <result column="major_id" property="majorId" jdbcType="INTEGER" />
@@ -34,7 +34,7 @@
       term, academy_id, major_id, 
       study_status, is_in_school, education_level, 
       cultivate_level, category, updated)
-    values (#{id,jdbcType=INTEGER}, #{stuId,jdbcType=CHAR}, #{semester,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{stuId,jdbcType=CHAR}, #{semester,jdbcType=VARCHAR},
       #{term,jdbcType=INTEGER}, #{academyId,jdbcType=INTEGER}, #{majorId,jdbcType=INTEGER}, 
       #{studyStatus,jdbcType=INTEGER}, #{isInSchool,jdbcType=INTEGER}, #{educationLevel,jdbcType=VARCHAR}, 
       #{cultivateLevel,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{updated,jdbcType=TIMESTAMP})
@@ -87,7 +87,7 @@
         #{stuId,jdbcType=CHAR},
       </if>
       <if test="semester != null" >
-        #{semester,jdbcType=TIMESTAMP},
+        #{semester,jdbcType=VARCHAR},
       </if>
       <if test="term != null" >
         #{term,jdbcType=INTEGER},
@@ -125,7 +125,7 @@
         stu_id = #{stuId,jdbcType=CHAR},
       </if>
       <if test="semester != null" >
-        semester = #{semester,jdbcType=TIMESTAMP},
+        semester = #{semester,jdbcType=VARCHAR},
       </if>
       <if test="term != null" >
         term = #{term,jdbcType=INTEGER},
@@ -160,7 +160,7 @@
   <update id="updateByPrimaryKey" parameterType="com.stu.pojo.StuStudyMsg" >
     update stu_study_msg
     set stu_id = #{stuId,jdbcType=CHAR},
-      semester = #{semester,jdbcType=TIMESTAMP},
+      semester = #{semester,jdbcType=VARCHAR},
       term = #{term,jdbcType=INTEGER},
       academy_id = #{academyId,jdbcType=INTEGER},
       major_id = #{majorId,jdbcType=INTEGER},

@@ -150,4 +150,42 @@ public class StuServiceImpl implements StuService {
     public List<StuBaseMsg> selectByStatus(Integer status) {
         return stuBaseMsgMapper.selectByStatus(status);
     }
+
+    /**
+     * 通过学号来查询学生的学籍信息
+     * @param id 学号
+     * @return StuStudyMsg
+     */
+    @Override
+    public StuStudyMsg selectByStuId(String id) {
+        return stuStudyMsgMapper.selectByStuId(id);
+    }
+
+    /**
+     * 更新StuBaseMsg对象
+     * @param stuBaseMsg 需要更新的对象
+     * @return  1 更新成功   0 更新失败   -1 当前更新对象没有获取最新信息
+     */
+    @Override
+    public int updateStuBaseMsgByPrimaryKeySelective(StuBaseMsg stuBaseMsg) {
+        //获取id信息
+        String id = stuBaseMsg.getId();
+        //从数据库中查询最新的StuBaseMsg对象
+        StuBaseMsg record = stuBaseMsgMapper.selectByPrimaryKey(id);
+        //获取update时间
+        String record_updated = DateUtils.dateToStrLong(record.getUpdated());
+        String page_update = DateUtils.dateToStrLong(stuBaseMsg.getUpdated());
+        //比对update时间
+        if(record_updated.equals(page_update)){
+            //获取当前时间，并更新最新更新时间
+            stuBaseMsg.setUpdated(DateUtils.getNow());
+            //调用Mapper层方法
+            int result = stuBaseMsgMapper.updateByPrimaryKeySelective(stuBaseMsg);
+            return result;
+        }
+        //如果时间不相等
+        else{
+            return -1;
+        }
+    }
 }

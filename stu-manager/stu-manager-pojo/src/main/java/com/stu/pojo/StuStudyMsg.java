@@ -8,7 +8,7 @@ public class StuStudyMsg implements Serializable {
 
     private String stuId;
 
-    private Date semester;
+    private String semester;
 
     private Integer term;
 
@@ -44,11 +44,11 @@ public class StuStudyMsg implements Serializable {
         this.stuId = stuId == null ? null : stuId.trim();
     }
 
-    public Date getSemester() {
+    public String getSemester() {
         return semester;
     }
 
-    public void setSemester(Date semester) {
+    public void setSemester(String semester) {
         this.semester = semester;
     }
 

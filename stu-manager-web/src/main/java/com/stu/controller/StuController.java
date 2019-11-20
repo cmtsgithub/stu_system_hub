@@ -139,5 +139,24 @@ public class StuController {
             return JsonResult.build(400, "更新失败，请重试!");
         }
     }
+
+    /**
+     * 更新学生基本信息
+     * @param stuBaseMsg 映射对象
+     * @return Json
+     */
+    @ResponseBody
+    @RequestMapping(value = "/update/stuBaseMsg")
+    public JsonResult updateStuBaseMsg(@RequestBody StuBaseMsg stuBaseMsg){
+        //调用服务层方法
+        int result = stuService.updateStuBaseMsgByPrimaryKeySelective(stuBaseMsg);
+        //返回Json对象
+        if(result == 1)
+            return JsonResult.ok();
+        else if(result == -1)
+            return JsonResult.build(400, "更新失败, 请获取最新的学生信息");
+        else
+            return JsonResult.build(400, "更新失败，原因未知，请重试");
+    }
 }
 
