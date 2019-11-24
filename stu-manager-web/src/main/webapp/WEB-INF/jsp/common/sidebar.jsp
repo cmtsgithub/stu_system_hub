@@ -36,7 +36,7 @@
             <li class="admin-parent">
                 <a class="am-cf" data-am-collapse="{target: '#collapse-nav2'}"><i class="am-icon-line-chart" aria-hidden="true"></i> 课程管理 <span class="am-icon-angle-right am-fr am-margin-right"></span></a>
                 <ul class="am-list am-collapse admin-sidebar-sub am-in" id="collapse-nav2">
-                    <li><a href="../../html/chart_line.html" class="am-cf"> <span>课程列表</span></a></li>
+                    <li><a href="/coursePage" class="am-cf"> <span>课程列表</span></a></li>
                     <li><a href="../../html/chart_columnar.html" class="am-cf"> <span>查询课程</span></a></li>
                     <li><a href="../../html/chart_pie.html" class="am-cf"> <span>考试情况</span></a></li>
                 </ul>

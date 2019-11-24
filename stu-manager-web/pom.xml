@@ -79,6 +79,11 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
+            <groupId>com.stu</groupId>
+            <artifactId>stu-course-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>fastdfs_client</groupId>
             <artifactId>fastdfs_client</artifactId>
             <version>1.25</version>

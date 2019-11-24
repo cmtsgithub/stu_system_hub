@@ -18,4 +18,6 @@ public interface StuCourseMapper {
     int updateByPrimaryKeySelective(StuCourse record);
 
     int updateByPrimaryKey(StuCourse record);
+
+    List<StuCourse> selectAll(int status);
 }

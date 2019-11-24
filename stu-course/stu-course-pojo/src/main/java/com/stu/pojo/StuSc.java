@@ -1,8 +1,9 @@
 package com.stu.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class StuSc {
+public class StuSc implements Serializable {
     private Integer id;
 
     private String stuId;

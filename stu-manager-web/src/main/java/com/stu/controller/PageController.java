@@ -2,7 +2,9 @@ package com.stu.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.stu.pojo.StuBaseMsg;
+import com.stu.pojo.StuCourse;
 import com.stu.pojo.StuStudyMsg;
+import com.stu.service.CourseService;
 import com.stu.service.StuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,12 +23,15 @@ public class PageController {
     @Autowired
     private StuService stuService;
 
+    @Autowired
+    private CourseService courseService;
+
     /**
      * 跳转到学生列表页面
      * @return
      */
     @RequestMapping(value = "/stuBaseMsgPage", method = RequestMethod.GET)
-    public String stuBaseMsgPage(Model model, @RequestParam(defaultValue = "1") Integer status, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "8") int pageSize){
+    public String stuBaseMsgPage(Model model, @RequestParam(defaultValue = "1") Integer status, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize){
         //获得PageInfo
         PageInfo pageInfo = stuService.selectStuBaseMsgByPageNum(pageNum, pageSize, status);
         model.addAttribute("pageInfo", pageInfo);
@@ -54,6 +59,21 @@ public class PageController {
         model.addAttribute("stuStudyMsg", stuStudyMsg);
         //返回update页面
         return "student/update";
+    }
+
+    /**
+     * 跳转到课程页面
+     * @param model model
+     * @param status 课程状态 1可选 2满人 3已被删除
+     * @param pageNum 页码
+     * @param pageSize 最大容量
+     * @return jsp页面
+     */
+    @RequestMapping(value = "/coursePage", method = RequestMethod.GET)
+    public String coursePage(Model model, @RequestParam(defaultValue = "1") Integer status, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
+        PageInfo<StuCourse> pageInfo = courseService.selectCourseByPageNum(pageNum, pageSize, status);
+        model.addAttribute("pageInfo", pageInfo);
+        return "course/courses";
     }
 
 }
