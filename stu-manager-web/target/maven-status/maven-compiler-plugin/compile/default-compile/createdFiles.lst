@@ -1,5 +1,6 @@
 com\stu\utils\FastDFSClient.class
 com\stu\controller\PageController.class
+com\stu\controller\CourseController.class
 com\stu\controller\StuController.class
 com\stu\controller\ImageController.class
 com\stu\utils\ConvertDate.class

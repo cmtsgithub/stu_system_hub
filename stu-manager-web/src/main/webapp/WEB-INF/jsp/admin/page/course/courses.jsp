@@ -120,17 +120,6 @@
                                 </tr>
                                 </tbody>
                             </table>
-                            <!--                                <div class="am-fr">-->
-                            <!--                                    <ul class="am-pagination">-->
-                            <!--                                        <li class="am-disabled"><a href="#">«</a></li>-->
-                            <!--                                        <li class="am-active"><a href="#">1</a></li>-->
-                            <!--                                        <li><a href="#">2</a></li>-->
-                            <!--                                        <li><a href="#">3</a></li>-->
-                            <!--                                        <li><a href="#">4</a></li>-->
-                            <!--                                        <li><a href="#">5</a></li>-->
-                            <!--                                        <li><a href="#">»</a></li>-->
-                            <!--                                    </ul>-->
-                            <!--                                </div>-->
                             <div id="page" ></div>
                             <hr />
                             <p>注：.....</p>
@@ -158,40 +147,31 @@
         <div class="layui-inline">
             <label class="layui-form-label">课程名称</label>
             <div class="layui-input-inline">
-                <input type="text" name="name" lay-verify="title" autocomplete="off" placeholder="请输入增加的课程" class="layui-input">
+                <input type="text" name="name" lay-verify="course_name" autocomplete="off" placeholder="请输入增加的课程" class="layui-input">
             </div>
         </div>
         <div class="layui-inline">
             <label class="layui-form-label">课程类别</label>
             <div class="layui-input-block">
-                <input type="radio" name="type" value="必修" title="必修" checked="">
-                <input type="radio" name="type" value="专业选修" title="专业选修">
-                <input type="radio" name="type" value="院公选" title="院公选">
-                <input type="radio" name="type" value="特殊课程" title="特殊课程">
+                <input type="radio" name="categoryId" value="1" title="必修" checked="" >
+                <input type="radio" name="categoryId" value="2" title="专业选修">
+                <input type="radio" name="categoryId" value="3" title="院公选">
+                <input type="radio" name="categoryId" value="4" title="特殊课程">
             </div>
         </div>
     </div>
     <div class="layui-form-item">
         <div class="layui-inline">
-            <label class="layui-form-label" style="width: 200px">所属二级学院名称</label>
+            <label class="layui-form-label">院系</label>
             <div class="layui-input-inline">
-                <select name="academyId" lay-filter="aihao">
-                    <option value="0">计算机学院</option>
-                    <option value="1">金融与贸易学院</option>
-                    <option value="2">工商管理学院</option>
-                    <option value="3">机械工程学院</option>
-                    <option value="4">旅游管理学院</option>
+                <select name="academyId" lay-filter="academy" id="academy_select">
                 </select>
             </div>
         </div>
         <div class="layui-inline">
-            <label class="layui-form-label" style="width: 200px">所属专业名称</label>
+            <label class="layui-form-label">专业</label>
             <div class="layui-input-inline">
-                <select name="majorId" lay-filter="aihao">
-                    <option value="0">计算机科学与技术</option>
-                    <option value="1">软件工程</option>
-                    <option value="2">网络工程</option>
-                    <option value="3">信息管理</option>
+                <select name="majorId" lay-filter="major" id="major_select">
                 </select>
             </div>
         </div>
@@ -224,19 +204,7 @@
         <div class="layui-inline">
             <label class="layui-form-label">上课时间</label>
             <div class="layui-input-inline">
-                <input type="text" name="time" id="time" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-inline">
-            <label class="layui-form-label">创立时间</label>
-            <div class="layui-input-inline">
-                <input type="text" name="createTime" id="createTime" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
-            </div>
-        </div>
-        <div class="layui-inline">
-            <label class="layui-form-label">更新时间</label>
-            <div class="layui-input-inline">
-                <input type="text" name="updateTime" id="updateTime" lay-verify="date" placeholder="yyyy-MM-dd" autocomplete="off" class="layui-input">
+                <input type="text" name="time" lay-verify="course_time" autocomplete="off" placeholder="请输入上课时间" class="layui-input">
             </div>
         </div>
     </div>
@@ -423,7 +391,7 @@
             });
             layer.open({
                 type: 1,
-                title: '新增学生',
+                title: '新增课程',
                 area: ['1000px', '600px'],
                 content: $('#add_form') //这里content是一个普通的String
             });
@@ -477,23 +445,29 @@
             ,layedit = layui.layedit
             ,laydate = layui.laydate;
 
-        //日期
-        //同时绑定多个
-        lay('#date, #enrollment_date').each(function(){
-            laydate.render({
-                elem: this
-                ,trigger: 'click'
-            });
-        });
-
         //创建一个编辑器
         var editIndex = layedit.build('LAY_demo_editor');
 
         //自定义验证规则
         form.verify({
-            title: function(value){
-                if(value.length < 2){
-                    return '姓名至少得2个字符啊';
+            course_name: function(value){
+                if(value.length < 1){
+                    return '课程名称不能为空';
+                }
+            }
+            ,number: function(value){
+                if(value.length < 1){
+                    return '教师姓名不能为空';
+                }
+            }
+            ,teacher: function(value){
+                if(value.length < 1){
+                    return '教师姓名不能为空';
+                }
+            }
+            ,course_time: function(value){
+                if(value.length < 3){
+                    return '请输入正确的上课时间';
                 }
             }
             ,content: function(value){
@@ -505,7 +479,7 @@
         form.on('submit(demo1)', function(data){
             //发送ajax请求
             $.ajax({
-                url : "/stu_add",
+                url : "/course/add",
                 type : "POST",
                 contentType: 'application/json',
                 async : true,
@@ -516,25 +490,25 @@
                         layer.alert(data.msg, {
                             title: '新增成功'
                         });
-                        var stu = data.data;
-                        //异步插入表格中
-                        $("#stu_table").prepend(
-                            "<tr><td><input type='checkbox' /></td><td >" + stu.id + "</td><td >" + stu.name + "</td><td >" + stu.sex + "</td><td >" + dateFormat(stu.updated) + "</td><td>"
-                            + "<div class='am-btn-toolbar'>\n" +
-                            "    <div class='am-btn-group am-btn-group-xs'>\n" +
-                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary edit' type='button' onclick='updateStu(this)'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
-                            "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only' type='button'><span class='am-icon-copy'></span> 复制</button>\n" +
-                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only' type='button' onclick='deleteStu(this)'><span class='am-icon-trash-o'></span> 删除</button>\n" +
-                            "    </div>\n" +
-                            "</div>\n" +
-                            "</td>\n" +
-                            "</tr>"
-                        );
-                        //增加样式
-                        var children = $("tr")[1].children;
-                        for (var i=0; i<5; i++){
-                            $(children[i]).css('color', 'green');
-                        }
+                        // var stu = data.data;
+                        // //异步插入表格中
+                        // $("#stu_table").prepend(
+                        //     "<tr><td><input type='checkbox' /></td><td >" + stu.id + "</td><td >" + stu.name + "</td><td >" + stu.sex + "</td><td >" + dateFormat(stu.updated) + "</td><td>"
+                        //     + "<div class='am-btn-toolbar'>\n" +
+                        //     "    <div class='am-btn-group am-btn-group-xs'>\n" +
+                        //     "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary edit' type='button' onclick='updateStu(this)'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
+                        //     "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only' type='button'><span class='am-icon-copy'></span> 复制</button>\n" +
+                        //     "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only' type='button' onclick='deleteStu(this)'><span class='am-icon-trash-o'></span> 删除</button>\n" +
+                        //     "    </div>\n" +
+                        //     "</div>\n" +
+                        //     "</td>\n" +
+                        //     "</tr>"
+                        // );
+                        // //增加样式
+                        // var children = $("tr")[1].children;
+                        // for (var i=0; i<5; i++){
+                        //     $(children[i]).css('color', 'green');
+                        // }
                     } else {
                         layer.alert(data.msg, {
                             title: '新增失败'
@@ -552,50 +526,6 @@
         });
 
     });
-</script>
-<%--图片上传脚本--%>
-<script>
-    layui.use('upload', function(){
-        var upload = layui.upload;
-
-        //执行实例
-        //图片上传
-        upload.render({
-            elem: '#uploadImg'
-            , url: "/image/uploadImage" //必填项
-            , method: 'post'  //可选项。HTTP类型，默认post
-            , accept: 'images'
-            , acceptMime: 'image/*'
-            , size: 200
-            ,done: function(data){
-                //如果上传失败
-                if(data.status != 200){
-                    $("#form_submit_btn").addClass("layui-btn-disabled").attr('disabled', 'disabled');
-                    return layer.alert('上传失败');
-                }
-                //上传成功
-                var img = '<img layer-pid="rotationChartDiv" alt=""  layer-src="' + data.data.url + '" src="' +
-                    data.data.url + '" style="max-width: 100%;max-height: 100%;">';
-                $("#form_submit_btn").removeClass("layui-btn-disabled").removeAttr('disabled');
-                $("#rotationChartDiv").html(img);
-                $("#uploadImgUrl").val(data.data.url);
-            }
-            ,error: function(){
-                layer.msg("上传失败");
-            }
-        });
-    });
-</script>
-<%--图片放大脚本--%>
-<script>
-    var renderImg = function () {
-        var form = layui.form;
-        form.render();
-        layer.photos({
-            photos: '.theImg'
-            , anim: 5 //0-6的选择，指定弹出图片动画类型，默认随机（请注意，3.0之前的版本用shift参数）
-        });
-    }
 </script>
 
 </html>

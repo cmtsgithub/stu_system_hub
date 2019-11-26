@@ -3,6 +3,7 @@
 <mapper namespace="com.stu.mapper.StuScMapper" >
   <resultMap id="BaseResultMap" type="com.stu.pojo.StuSc" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="time" property="time" jdbcType="VARCHAR" />
     <result column="stu_id" property="stuId" jdbcType="CHAR" />
     <result column="course_id" property="courseId" jdbcType="INTEGER" />
     <result column="grade_id" property="gradeId" jdbcType="INTEGER" />
@@ -11,7 +12,7 @@
     <result column="updated" property="updated" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, stu_id, course_id, grade_id, status, created, updated
+    id, time, stu_id, course_id, grade_id, status, created, updated
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -24,18 +25,21 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.stu.pojo.StuSc" >
-    insert into stu_sc (id, stu_id, course_id, 
-      grade_id, status, created, 
-      updated)
-    values (#{id,jdbcType=INTEGER}, #{stuId,jdbcType=CHAR}, #{courseId,jdbcType=INTEGER}, 
-      #{gradeId,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{created,jdbcType=TIMESTAMP}, 
-      #{updated,jdbcType=TIMESTAMP})
+    insert into stu_sc (id, time, stu_id, 
+      course_id, grade_id, status, 
+      created, updated)
+    values (#{id,jdbcType=INTEGER}, #{time,jdbcType=VARCHAR}, #{stuId,jdbcType=CHAR}, 
+      #{courseId,jdbcType=INTEGER}, #{gradeId,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{created,jdbcType=TIMESTAMP}, #{updated,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.stu.pojo.StuSc" >
     insert into stu_sc
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
+      </if>
+      <if test="time != null" >
+        time,
       </if>
       <if test="stuId != null" >
         stu_id,
@@ -60,6 +64,9 @@
       <if test="id != null" >
         #{id,jdbcType=INTEGER},
       </if>
+      <if test="time != null" >
+        #{time,jdbcType=VARCHAR},
+      </if>
       <if test="stuId != null" >
         #{stuId,jdbcType=CHAR},
       </if>
@@ -83,6 +90,9 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.stu.pojo.StuSc" >
     update stu_sc
     <set >
+      <if test="time != null" >
+        time = #{time,jdbcType=VARCHAR},
+      </if>
       <if test="stuId != null" >
         stu_id = #{stuId,jdbcType=CHAR},
       </if>
@@ -106,7 +116,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.stu.pojo.StuSc" >
     update stu_sc
-    set stu_id = #{stuId,jdbcType=CHAR},
+    set time = #{time,jdbcType=VARCHAR},
+      stu_id = #{stuId,jdbcType=CHAR},
       course_id = #{courseId,jdbcType=INTEGER},
       grade_id = #{gradeId,jdbcType=INTEGER},
       status = #{status,jdbcType=INTEGER},

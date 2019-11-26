@@ -2,9 +2,6 @@ package com.stu.mapper;
 
 import com.stu.pojo.StuSc;
 
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
-
 public interface StuScMapper {
 
     int deleteByPrimaryKey(Integer id);

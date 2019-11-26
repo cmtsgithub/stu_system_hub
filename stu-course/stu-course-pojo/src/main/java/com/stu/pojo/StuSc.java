@@ -6,6 +6,8 @@ import java.util.Date;
 public class StuSc implements Serializable {
     private Integer id;
 
+    private String time;
+
     private String stuId;
 
     private Integer courseId;
@@ -24,6 +26,14 @@ public class StuSc implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time == null ? null : time.trim();
     }
 
     public String getStuId() {
