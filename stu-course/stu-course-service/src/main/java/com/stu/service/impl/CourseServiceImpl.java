@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.stu.mapper.StuCourseMapper;
 import com.stu.pojo.StuCourse;
 import com.stu.service.CourseService;
+import com.stu.utils.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,4 +41,20 @@ public class CourseServiceImpl implements CourseService {
         PageInfo<StuCourse> pageInfo = new PageInfo<>(stuCourseList);
         return pageInfo;
     }
+
+    /**
+     * 新增课程
+     * @param record 课程pojo对象
+     * @return 唯一主键
+     */
+    @Override
+    public int insertSelective(StuCourse record) {
+        //完善stuCourse对象属性
+        record.setStatus(1);// 1为可选 2为满人 3为已过期课程
+        record.setCreated(DateUtils.getNow());
+        record.setUpdated(DateUtils.getNow());
+        //调用服务层方法新增课程
+        return stuCourseMapper.insertSelective(record);
+    }
+
 }

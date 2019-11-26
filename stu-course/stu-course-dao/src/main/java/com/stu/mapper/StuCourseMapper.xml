@@ -29,6 +29,9 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.stu.pojo.StuCourse" >
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into stu_course (id, name, category_id, 
       academy_id, major_id, max_number, 
       teacher_name, time, created, 
@@ -39,6 +42,9 @@
       #{updated,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.stu.pojo.StuCourse" >
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into stu_course
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

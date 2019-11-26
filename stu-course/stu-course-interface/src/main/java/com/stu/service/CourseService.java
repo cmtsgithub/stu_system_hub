@@ -10,4 +10,6 @@ public interface CourseService {
     List<StuCourse> selectAll(int status);
 
     PageInfo<StuCourse> selectCourseByPageNum(int pageNum, int pageSize, int status);
+
+    int insertSelective(StuCourse record);
 }
