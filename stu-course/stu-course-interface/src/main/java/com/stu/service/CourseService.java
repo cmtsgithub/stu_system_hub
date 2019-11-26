@@ -12,4 +12,6 @@ public interface CourseService {
     PageInfo<StuCourse> selectCourseByPageNum(int pageNum, int pageSize, int status);
 
     int insertSelective(StuCourse record);
+
+    StuCourse selectByPrimaryKey(Integer id);
 }

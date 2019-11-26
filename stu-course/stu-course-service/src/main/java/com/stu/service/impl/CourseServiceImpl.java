@@ -45,16 +45,29 @@ public class CourseServiceImpl implements CourseService {
     /**
      * 新增课程
      * @param record 课程pojo对象
-     * @return 唯一主键
+     * @return 唯一主键  如果数据库语句报错，则返回0
      */
     @Override
     public int insertSelective(StuCourse record) {
         //完善stuCourse对象属性
-        record.setStatus(1);// 1为可选 2为满人 3为已过期课程
+        record.setStatus(4);// 1为可选 2为满人 3为已过期课程 4课程准备抢课
         record.setCreated(DateUtils.getNow());
         record.setUpdated(DateUtils.getNow());
         //调用服务层方法新增课程
-        return stuCourseMapper.insertSelective(record);
+        int result = stuCourseMapper.insertSelective(record);
+        if(result == 0)
+            return 0;
+        Integer id = record.getId();
+        return id;
     }
 
+    /**
+     * 查询
+     * @param id 主键
+     * @return pojo
+     */
+    @Override
+    public StuCourse selectByPrimaryKey(Integer id) {
+        return stuCourseMapper.selectByPrimaryKey(id);
+    }
 }
