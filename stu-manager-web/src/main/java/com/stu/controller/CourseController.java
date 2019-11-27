@@ -41,7 +41,7 @@ public class CourseController {
      * @return json串
      */
     @ResponseBody
-    @RequestMapping(value = "/stuStatus/{id}/{status}", method = RequestMethod.POST)
+    @RequestMapping(value = "/courseStatus/{id}/{status}", method = RequestMethod.POST)
     public JsonResult updateCourseStatus(@PathVariable Integer id, @PathVariable Integer status){
         //根据id查询课程
         //判断返回的课程pojo是否为null

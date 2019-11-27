@@ -52,6 +52,7 @@
     <quartz.version>2.2.2</quartz.version>
     <commons-beanutils.version>1.9.3</commons-beanutils.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <jxl.version>2.6.12</jxl.version>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -263,6 +264,12 @@
         <groupId>commons-beanutils</groupId>
         <artifactId>commons-beanutils</artifactId>
         <version>${commons-beanutils.version}</version>
+      </dependency>
+      <!--excel读取类-->
+      <dependency>
+        <groupId>net.sourceforge.jexcelapi</groupId>
+        <artifactId>jxl</artifactId>
+        <version>${jxl.version}</version>
       </dependency>
     </dependencies>
   </dependencyManagement>

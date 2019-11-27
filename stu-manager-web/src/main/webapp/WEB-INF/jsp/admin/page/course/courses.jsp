@@ -95,29 +95,31 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td><input type="checkbox" /></td>
-                                    <td>1</td>
-                                    <td><a href="#">Business management</a></td>
-                                    <td>default</td>
-                                    <td>default</td>
-                                    <td>default</td>
-                                    <td>default</td>
-                                    <td>default</td>
-                                    <td>default</td>
-                                    <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                                    <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                                    <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                                    <td>
-                                        <div class="am-btn-toolbar">
-                                            <div class="am-btn-group am-btn-group-xs">
-                                                <button class="am-btn am-btn-default am-btn-xs am-text-secondary" type="button" id="edit"><span class="am-icon-pencil-square-o"></span> 编辑</button>
-                                                <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
-                                                <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                <c:forEach var="course" items="${pageInfo.list}">
+                                    <tr>
+                                        <td><input type="checkbox" /></td>
+                                        <td>${course.id}</td>
+                                        <td>${course.name}</td>
+                                        <td>${course.categoryId}</td>
+                                        <td>${course.academyId}</td>
+                                        <td>${course.majorId}</td>
+                                        <td>${course.maxNumber}</td>
+                                        <td>0</td>
+                                        <td>${course.teacherName}</td>
+                                        <td class="am-hide-sm-only">${course.time}</td>
+                                        <td class="am-hide-sm-only"><fmt:formatDate value="${course.updated}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+                                        <td class="am-hide-sm-only"><fmt:formatDate value="${course.updated}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
+                                        <td>
+                                            <div class="am-btn-toolbar">
+                                                <div class="am-btn-group am-btn-group-xs">
+                                                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary" type="button" id="edit"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+                                                    <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><span class="am-icon-copy"></span> 复制</button>
+                                                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                                 </tbody>
                             </table>
                             <div id="page" ></div>
@@ -200,11 +202,41 @@
             </div>
         </div>
     </div>
-    <div class="layui-form-item">
+    <div class="layui-form-item am-form-horizontal">
+        <div class="layui-inline">
+            <label class="layui-form-label">上课周</label>
+            <div class="layui-input-block">
+                <input type="radio" name="weekType_radio" value="1" title="单周">
+                <input type="radio" name="weekType_radio" value="2" title="双周">
+                <input type="radio" name="weekType_radio" value="3" title="单双周" checked="">
+            </div>
+        </div>
         <div class="layui-inline">
             <label class="layui-form-label">上课时间</label>
             <div class="layui-input-inline">
-                <input type="text" name="time" lay-verify="course_time" autocomplete="off" placeholder="请输入上课时间" class="layui-input">
+                <select id="day_select" lay-filter="aihao">
+                    <option value="一">星期一</option>
+                    <option value="二">星期二</option>
+                    <option value="三">星期三</option>
+                    <option value="四">星期四</option>
+                    <option value="五">星期五</option>
+                    <option value="六">星期六</option>
+                    <option value="日">星期日</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-inline">
+            <label class="layui-form-label">节数</label>
+            <div class="layui-input-block">
+                <input type="checkbox" value="1" title="1、2节" name="jieshu_checkbox" checked="checked">
+                <input type="checkbox" value="2" title="3、4节" name="jieshu_checkbox" >
+                <input type="checkbox" value="3" title="5、6节" name="jieshu_checkbox">
+                <input type="checkbox" value="4" title="7、8节" name="jieshu_checkbox">
+                <input type="checkbox" value="5" title="9、10节" name="jieshu_checkbox">
+                <input type="checkbox" value="6" title="11、12节" name="jieshu_checkbox">
+            </div>
+            <div class="layui-inline">
+                <input type="hidden" name="time" id="time_input"/>
             </div>
         </div>
     </div>
@@ -437,6 +469,30 @@
         });
     }
 </script>
+<%--上课时间获取脚本--%>
+<script>
+    //获取上课时间
+    function getCourseTime() {
+        //获取周类型
+        var weekType = $("input[name='weekType_radio']:checked").val();
+        //获取上课天数
+        var dayType = $("#day_select").val();
+        //获取节数
+        var chk_value =[];//定义一个数组
+        $('input[name="jieshu_checkbox"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数
+            chk_value.push($(this).val());//将选中的值添加到数组chk_value中
+        });
+        //字符串拼接
+        var time = weekType + dayType;
+        $.each(chk_value, function(i, val) {
+            (time = time + val + "-");
+        });
+        //字符串截取
+        time = time.slice(0, time.length-1);
+        //返回时间
+        return time;
+    }
+</script>
 <%--表单提交脚本--%>
 <script>
     layui.use(['form', 'layedit', 'laydate'], function(){
@@ -477,13 +533,25 @@
 
         //监听提交
         form.on('submit(demo1)', function(data){
+            //获取上课时间
+            var time = getCourseTime();
+            //填入隐藏input
+            $("#time_input").val(time);
+            //序列表表格
+            var fields = $('#add_form').serializeArray();
+            //声明一个对象
+            var jsonData = {};
+            //填值
+            $.each(fields, function(index, field) {
+                jsonData[field.name] = field.value; //通过变量，将属性值，属性一起放到对象中
+            });
             //发送ajax请求
             $.ajax({
                 url : "/course/add",
                 type : "POST",
                 contentType: 'application/json',
                 async : true,
-                data : JSON.stringify(data.field),
+                data : JSON.stringify(jsonData),
                 dataType : 'json',
                 success : function(data) {
                     if (data.status == 200) {
@@ -517,12 +585,6 @@
                 }
             });
             return false;
-        });
-
-        //表单取值
-        layui.$('#LAY-component-form-getval').on('click', function(){
-            var data = form.val('example');
-            alert(JSON.stringify(data));
         });
 
     });

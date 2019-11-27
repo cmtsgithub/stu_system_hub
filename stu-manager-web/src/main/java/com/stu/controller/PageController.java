@@ -64,13 +64,13 @@ public class PageController {
     /**
      * 跳转到课程页面
      * @param model model
-     * @param status 课程状态 1可选 2满人 3已被删除
+     * @param status 课程状态 1可选 2满人 3已被删除  4抢课阶段
      * @param pageNum 页码
      * @param pageSize 最大容量
      * @return jsp页面
      */
     @RequestMapping(value = "/coursePage", method = RequestMethod.GET)
-    public String coursePage(Model model, @RequestParam(defaultValue = "1") Integer status, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
+    public String coursePage(Model model, @RequestParam(defaultValue = "4") Integer status, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "10") int pageSize) {
         PageInfo<StuCourse> pageInfo = courseService.selectCourseByPageNum(pageNum, pageSize, status);
         model.addAttribute("pageInfo", pageInfo);
         return "course/courses";

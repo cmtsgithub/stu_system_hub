@@ -14,8 +14,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>学生管理系统</title>
     <jsp:include page="/WEB-INF/jsp/common/csslink.jsp"></jsp:include>
+    <style type="text/css">
+        #loadingDiv{
+        background-color:grey;
+        filter: alpha(opacity=50); /*IE的透明度*/
+        opacity: 0.1; /*透明度，数值越大越透明，不要调太小，不然gif图片会特别模糊*/
+        display: none;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        z-index: 100;  /*此处的图层要大于页面*/
+        display:none;
+        }
+    </style>
 </head>
 <body>
+<div id="loadingDiv">
+    <img src="loading.gif" style="margin-top:230px;margin-left:700px;" />
+</div>
 <!-- Begin page -->
 <header class="am-topbar am-topbar-fixed-top">
     <div class="am-topbar-left am-hide-sm-only">
@@ -55,7 +73,7 @@
                             <div class="am-btn-group am-btn-group-xs">
                                 <button id="add" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
                                 <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
-                                <button type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 审核</button>
+                                <button id="import" type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 导入</button>
                                 <button type="button" id="del" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
                             </div>
                         </div>
@@ -536,6 +554,45 @@
             alert(JSON.stringify(data));
         });
 
+    });
+</script>
+<script>
+    layui.use('upload', function(){
+        var upload = layui.upload;
+        //执行实例
+        upload.render({
+            elem: '#import' //绑定元素
+            , method: 'post'  //可选项。HTTP类型，默认post
+            ,accept: 'file'
+            ,acceptMime: '.xls'
+            ,size: 0
+            ,field: 'multipartFile'
+            ,url: '/upload/file/uploadXls' //上传接口
+            ,before: function(obj){ //obj参数包含的信息，跟 choose回调完全一致，可参见上文。
+                //弹出遮盖层
+                $("#loadingDiv").fadeTo(200,0.5);
+            }
+            ,done: function(data){
+                if(data.status == 200){
+                    //刷新页面
+                    window.location.reload();
+                    layer.alert(data.msg, {
+                        title: '导入成功'
+                    });
+                }else{
+                    layer.alert(data.msg, {
+                        title: '导入失败'
+                    });
+                }
+                $("#loadingDiv").fadeOut(200);
+            }
+            ,error: function(){
+                layer.alert("请求失败", {
+                    title: '提示'
+                })
+                $("#loadingDiv").fadeOut(200);
+            }
+        });
     });
 </script>
 <%--图片上传脚本--%>

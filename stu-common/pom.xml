@@ -92,6 +92,11 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
+        <!--excel读取类-->
+        <dependency>
+            <groupId>net.sourceforge.jexcelapi</groupId>
+            <artifactId>jxl</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

@@ -4,14 +4,17 @@ import com.github.pagehelper.PageInfo;
 import com.stu.pojo.StuBaseMsg;
 import com.stu.pojo.StuStudyMsg;
 import com.stu.service.StuService;
-import com.stu.utils.BeanMapUtils;
-import com.stu.utils.DateUtils;
-import com.stu.utils.JsonResult;
-import com.stu.utils.JsonUtils;
+import com.stu.utils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.HashMap;
 import java.util.Map;
 
 @Controller
@@ -176,6 +179,38 @@ public class StuController {
             return JsonResult.build(400, "学籍信息已过期，请重新获取");
         } else {
             return JsonResult.build(400, "更新失败，原因未知，请重试");
+        }
+    }
+
+    /**
+     * 通过excel导入学生数据
+     * @return Json
+     */
+    @RequestMapping(value = "/upload/file/uploadXls", method = RequestMethod.POST)
+    @ResponseBody
+    public JsonResult importStu(MultipartFile multipartFile){
+        File file = null;
+        try {
+            // 获取输入流
+            InputStream inputStream = multipartFile.getInputStream();
+            // 取出文件的扩展名
+            String originalFilename = multipartFile.getOriginalFilename();
+            String ext = originalFilename.substring(originalFilename.lastIndexOf(".") + 1);
+            if(!ext.equals("xls"))
+                return JsonResult.build(400, "请选择正确的excel文件");
+            //输入流转File
+            file = FileUtils.inputStreamToFile(inputStream);
+            //调用服务层方法
+            int result = stuService.importStuMsg(file);
+            if(result == 1)
+                return JsonResult.build(200, "数据导入成功");
+            else return JsonResult.build(400, "数据导入失败");
+        } catch (IOException e) {
+            e.printStackTrace();
+            return JsonResult.build(400, "数据导入失败");
+        }finally {
+            //调用完成后删除文件
+            file.delete();
         }
     }
 

@@ -5,7 +5,9 @@ import com.stu.pojo.StuBaseMsg;
 import com.stu.pojo.StuStudyMsg;
 import com.stu.utils.JsonResult;
 
+import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 public interface StuService {
 
@@ -26,5 +28,7 @@ public interface StuService {
     int updateStuBaseMsgByPrimaryKeySelective(StuBaseMsg stuBaseMsg);
 
     int updateStuStudyMsgByPrimaryKeySelective(StuStudyMsg stuStudyMsg);
+
+    int importStuMsg(File xlsFile);
 
 }
