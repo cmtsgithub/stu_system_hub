@@ -5,16 +5,18 @@ import com.stu.pojo.StuBaseMsg;
 import com.stu.pojo.StuStudyMsg;
 import com.stu.service.StuService;
 import com.stu.utils.*;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -211,6 +213,39 @@ public class StuController {
         }finally {
             //调用完成后删除文件
             file.delete();
+        }
+    }
+
+    /**
+     * 导出学生数据到excel
+     * @param response response
+     * @return 学生列表页面
+     */
+    @RequestMapping("/stu/exportExcel")
+    @ResponseBody
+    public String exportStuExcel(HttpServletResponse response){
+        response.setContentType("application/binary;charset=UTF-8");
+        try{
+            try {
+                //设置文件头：最后一个参数是设置下载文件名(这里我们叫：stu.xls)
+                response.setHeader("Content-Disposition", "attachment;fileName=" + URLEncoder.encode("stu.xls", "UTF-8"));
+            } catch (UnsupportedEncodingException e1) {
+                e1.printStackTrace();
+            }
+            //创建Excel实体类对象
+            HSSFWorkbook workbook = new HSSFWorkbook();
+            String[] headers = { "标题1", "标题2", "标题3", "标题4", "标题5", "标题6",
+                    "标题6", "标题6", "标题6", "标题6", "标题6", "标题6", "标题6", "标题6", "标题6" };
+            List<StuBaseMsg> stuBaseMsgList = stuService.selectStuBaseMsgAll();
+            ExcelUtils.exportExcel("sheet0", headers, stuBaseMsgList, "yyyy-MM-dd HH:mm:ss", workbook);
+            ServletOutputStream outputStream = response.getOutputStream();
+            workbook.write(outputStream);
+            outputStream.flush();
+            outputStream.close();
+            return "redirect:/stuBaseMsgPage";
+        } catch(Exception e){
+            e.printStackTrace();
+            return "导出信息失败";
         }
     }
 

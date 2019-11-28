@@ -3,11 +3,11 @@ package com.stu.service;
 import com.github.pagehelper.PageInfo;
 import com.stu.pojo.StuBaseMsg;
 import com.stu.pojo.StuStudyMsg;
-import com.stu.utils.JsonResult;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 
 import java.io.File;
+import java.util.Collection;
 import java.util.List;
-import java.util.Map;
 
 public interface StuService {
 
@@ -30,5 +30,7 @@ public interface StuService {
     int updateStuStudyMsgByPrimaryKeySelective(StuStudyMsg stuStudyMsg);
 
     int importStuMsg(File xlsFile);
+
+    int exportStuMsg(String title, String[] headers, Collection dataset, String pattern, HSSFWorkbook workbook);
 
 }

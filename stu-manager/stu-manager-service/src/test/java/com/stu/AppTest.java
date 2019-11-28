@@ -8,9 +8,11 @@ import com.stu.pojo.StuStudyMsg;
 import com.stu.service.StuService;
 import com.stu.service.impl.StuServiceImpl;
 import com.stu.utils.DateUtils;
+import com.stu.utils.ExcelUtils;
 import jxl.Sheet;
 import jxl.Workbook;
 import org.apache.bcel.generic.DADD;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.util.StringUtils;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,14 +41,14 @@ public class AppTest
         assertTrue( true );
     }
 
-    StuService stuService = null;
+//    StuService stuService = null;
 
-    @Before
-    public void before(){
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring/spring-mybatis.xml");
-        StuService bean = applicationContext.getBean(StuService.class);
-        stuService = bean;
-    }
+//    @Before
+//    public void before(){
+//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring/spring-mybatis.xml");
+//        StuService bean = applicationContext.getBean(StuService.class);
+//        stuService = bean;
+//    }
 
 
 //    @Test
@@ -195,6 +200,25 @@ public class AppTest
 //    public void testImportStu(){
 //        int result = stuService.importStuMsg(new File("C:\\Users\\陈铭涛\\Desktop\\stu.xls"));
 //        System.out.println(result);
+//    }
+//
+//    @Test
+//    public void testExportExcel(){
+//        try{
+//            // 第一步，创建一个workbook，对应一个Excel文件
+//            HSSFWorkbook workbook = new HSSFWorkbook();
+//            FileOutputStream fileOutputStream = new FileOutputStream("C:\\Users\\陈铭涛\\Desktop\\TEST.xls");
+//            String[] headers = { "标题1", "标题2", "标题3", "标题4", "标题5", "标题6",
+//                    "标题6", "标题6", "标题6", "标题6", "标题6", "标题6", "标题6", "标题6", "标题6" };
+//            List<StuBaseMsg> stuBaseMsgs = stuService.selectStuBaseMsgAll();
+//            ExcelUtils.exportExcel("exportSheet", headers, stuBaseMsgs, "yyyy-MM-dd HH:mm:ss", workbook);
+//            workbook.write(fileOutputStream);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
 //    }
 
 }

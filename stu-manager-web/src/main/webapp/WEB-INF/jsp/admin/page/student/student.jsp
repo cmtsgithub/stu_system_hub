@@ -72,7 +72,7 @@
                         <div class="am-btn-toolbar">
                             <div class="am-btn-group am-btn-group-xs">
                                 <button id="add" type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-                                <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
+                                <button type="button" class="am-btn am-btn-default" onclick="exportExcel()"><span class="am-icon-save"></span> 导出</button>
                                 <button id="import" type="button" class="am-btn am-btn-default"><span class="am-icon-archive"></span> 导入</button>
                                 <button type="button" id="del" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
                             </div>
@@ -556,6 +556,7 @@
 
     });
 </script>
+<%--导出，导入脚本--%>
 <script>
     layui.use('upload', function(){
         var upload = layui.upload;
@@ -594,6 +595,12 @@
             }
         });
     });
+    //导入Excel文件
+    function exportExcel(){
+        var url = "/stu/exportExcel";
+        window.open(url);
+    }
+
 </script>
 <%--图片上传脚本--%>
 <script>

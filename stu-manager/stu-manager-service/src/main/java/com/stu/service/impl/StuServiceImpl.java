@@ -10,18 +10,17 @@ import com.stu.pojo.StuStudyMsg;
 import com.stu.service.StuMajorService;
 import com.stu.service.StuService;
 import com.stu.utils.DateUtils;
+import com.stu.utils.ExcelUtils;
 import jxl.Sheet;
 import jxl.Workbook;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class StuServiceImpl implements StuService {
@@ -335,6 +334,14 @@ public class StuServiceImpl implements StuService {
         }
     }
 
+    /**
+     * 生成学生学号
+     * @param academy_id_str 院系编号
+     * @param major_id_str 专业编号
+     * @param enrollmentDate 入学日期
+     * @param num 专业人数
+     * @return 学号
+     */
     private String creatStuId(String academy_id_str, String major_id_str, String enrollmentDate, Integer num){
         //如果院系编号小于10，则在前面补0
         String stuId = "";
@@ -385,5 +392,20 @@ public class StuServiceImpl implements StuService {
             }
         }
         return stuId;
+    }
+
+    /**
+     * 导出学生数据
+     * @param title 表格名
+     * @param headers  列名
+     * @param dataset 数据集
+     * @param pattern 日期格式
+     * @param workbook Excel实体类对象
+     * @return 0 导出失败  1 导出成功
+     */
+    @Override
+    public int exportStuMsg(String title, String[] headers, Collection dataset, String pattern, HSSFWorkbook workbook) {
+        ExcelUtils.exportExcel("exportSheet", headers, dataset, pattern, workbook);
+        return 1;
     }
 }
