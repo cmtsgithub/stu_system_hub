@@ -15,7 +15,6 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLEncoder;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -223,7 +222,7 @@ public class StuController {
      */
     @RequestMapping("/stu/exportExcel")
     @ResponseBody
-    public String exportStuExcel(HttpServletResponse response){
+    public Map<Object, String> exportStuExcel(HttpServletResponse response){
         response.setContentType("application/binary;charset=UTF-8");
         try{
             try {
@@ -234,18 +233,21 @@ public class StuController {
             }
             //创建Excel实体类对象
             HSSFWorkbook workbook = new HSSFWorkbook();
-            String[] headers = { "标题1", "标题2", "标题3", "标题4", "标题5", "标题6",
-                    "标题6", "标题6", "标题6", "标题6", "标题6", "标题6", "标题6", "标题6", "标题6" };
+            String[] headers_1 = { "学号", "姓名", "性别", "证件类型", "证件号", "生日",
+                    "民族", "政治面貌", "头像地址URL", "祖籍", "入学日期", "户口所在地", "信息创建日期", "信息更新日期", "登录密码" };
             List<StuBaseMsg> stuBaseMsgList = stuService.selectStuBaseMsgAll();
-            ExcelUtils.exportExcel("sheet0", headers, stuBaseMsgList, "yyyy-MM-dd HH:mm:ss", workbook);
+            ExcelUtils.exportExcel("学生基本信息", headers_1, stuBaseMsgList, "yyyy-MM-dd HH:mm:ss", workbook);
+            String[] headers_2 = {"编号", "学号", "学年", "学期", "院系代码", "专业代码", "学籍状态", "是否在校", "教育水平", "文化水平", "学生类别", "信息更新日期"};
+            List<StuStudyMsg> stuStudyMsgList = stuService.selectStuStudyMsgAll();
+            ExcelUtils.exportExcel("学生学籍信息", headers_2, stuStudyMsgList, "yyyy-MM-dd HH:mm:ss", workbook);
             ServletOutputStream outputStream = response.getOutputStream();
             workbook.write(outputStream);
             outputStream.flush();
             outputStream.close();
-            return "redirect:/stuBaseMsgPage";
+            return null;
         } catch(Exception e){
             e.printStackTrace();
-            return "导出信息失败";
+            return null;
         }
     }
 

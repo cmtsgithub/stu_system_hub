@@ -33,4 +33,6 @@ public interface StuService {
 
     int exportStuMsg(String title, String[] headers, Collection dataset, String pattern, HSSFWorkbook workbook);
 
+    List<StuStudyMsg> selectStuStudyMsgAll();
+
 }

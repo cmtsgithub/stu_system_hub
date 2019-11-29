@@ -408,4 +408,13 @@ public class StuServiceImpl implements StuService {
         ExcelUtils.exportExcel("exportSheet", headers, dataset, pattern, workbook);
         return 1;
     }
+
+    /**
+     * 查询所有的学籍信息
+     * @return List
+     */
+    @Override
+    public List<StuStudyMsg> selectStuStudyMsgAll() {
+        return stuStudyMsgMapper.selectAll();
+    }
 }

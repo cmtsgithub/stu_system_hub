@@ -178,4 +178,9 @@
     from stu_study_msg
     where stu_id = #{stu_id,jdbcType=CHAR}
   </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from stu_study_msg
+  </select>
 </mapper>

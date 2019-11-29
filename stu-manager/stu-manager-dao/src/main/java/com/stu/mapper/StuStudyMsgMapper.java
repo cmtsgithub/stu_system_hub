@@ -20,4 +20,6 @@ public interface StuStudyMsgMapper {
     int updateByPrimaryKey(StuStudyMsg record);
 
     StuStudyMsg selectByStuId(String id);
+
+    List<StuStudyMsg> selectAll();
 }
