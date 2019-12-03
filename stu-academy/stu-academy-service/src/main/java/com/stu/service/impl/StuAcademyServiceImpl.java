@@ -22,4 +22,15 @@ public class StuAcademyServiceImpl implements StuAcademyService {
     public List<StuAcademy> selectAll() {
         return stuAcademyMapper.selectAll();
     }
+
+
+    /**
+     * 根据ID来查询院系对象
+     * @param id 院系id
+     * @return pojo
+     */
+    @Override
+    public StuAcademy selectByPrimaryKey(int id) {
+        return stuAcademyMapper.selectByPrimaryKey(id);
+    }
 }

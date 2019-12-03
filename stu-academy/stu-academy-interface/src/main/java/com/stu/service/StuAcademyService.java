@@ -7,4 +7,6 @@ import java.util.List;
 public interface StuAcademyService {
 
     List<StuAcademy> selectAll();
+
+    StuAcademy selectByPrimaryKey(int id);
 }

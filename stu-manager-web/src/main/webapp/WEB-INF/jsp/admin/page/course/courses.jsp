@@ -101,8 +101,8 @@
                                         <td>${course.id}</td>
                                         <td>${course.name}</td>
                                         <td>${course.categoryId}</td>
-                                        <td>${course.academyId}</td>
-                                        <td>${course.majorId}</td>
+                                        <td name="academy_td">${course.academyId}</td>
+                                        <td name="major_td">${course.majorId}</td>
                                         <td>${course.maxNumber}</td>
                                         <td>0</td>
                                         <td>${course.teacherName}</td>
@@ -142,7 +142,9 @@
 <a href="admin-offcanvas" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"><!--<i class="fa fa-bars" aria-hidden="true"></i>--></a>
 <jsp:include page="/WEB-INF/jsp/common/jsscript.jsp"></jsp:include>
 
+
 </body>
+
 <%--表单--%>
 <form class="layui-form layui-form-pane" action="" id="add_form" style="margin-left: 20px">
     <div class="layui-form-item" style="margin-top: 10px">
@@ -429,6 +431,56 @@
             });
         });
     });
+
+    //页面加载完成后调用
+    window.onload = function(){
+        //获取院系td
+        var academy_td_ele = $("[name='academy_td']");
+        $.each( academy_td_ele, function(index, content)
+        {
+            setAcademy($(content).text(), content);
+        });
+        //获取专业td
+        var major_td_ele = $("[name='major_td']");
+        $.each( major_td_ele, function(index, content)
+        {
+            setMajor($(content).text(), content);
+        });
+    }
+    //发送ajax请求获取院系详细信息
+    function setAcademy(academyId, e){
+        $.ajax({
+            type: "get",
+            async: true,
+            url: "http://localhost:8083/getStuAcademy?academyId=" + academyId,
+            dataType: "jsonp",
+            jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+            success: function(json){
+                $(e).text(json.name);
+            },
+            error: function(){
+                alert('院系信息请求失败');
+            }
+        });
+    }
+
+    //发送ajax请求获取专业详细信息
+    function setMajor(majorId, e){
+        $.ajax({
+            type: "get",
+            async: true,
+            url: "http://localhost:8083/getStuMajor?majorId=" + majorId,
+            dataType: "jsonp",
+            jsonp: "callback",//传递给请求处理程序或页面的，用以获得jsonp回调函数名的参数名(一般默认为:callback)
+            success: function(json){
+                $(e).text(json.name);
+            },
+            error: function(){
+                alert('专业信息请求失败');
+            }
+        });
+    }
+
 </script>
 <%--院系联动脚本--%>
 <script>
@@ -558,25 +610,6 @@
                         layer.alert(data.msg, {
                             title: '新增成功'
                         });
-                        // var stu = data.data;
-                        // //异步插入表格中
-                        // $("#stu_table").prepend(
-                        //     "<tr><td><input type='checkbox' /></td><td >" + stu.id + "</td><td >" + stu.name + "</td><td >" + stu.sex + "</td><td >" + dateFormat(stu.updated) + "</td><td>"
-                        //     + "<div class='am-btn-toolbar'>\n" +
-                        //     "    <div class='am-btn-group am-btn-group-xs'>\n" +
-                        //     "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary edit' type='button' onclick='updateStu(this)'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
-                        //     "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only' type='button'><span class='am-icon-copy'></span> 复制</button>\n" +
-                        //     "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only' type='button' onclick='deleteStu(this)'><span class='am-icon-trash-o'></span> 删除</button>\n" +
-                        //     "    </div>\n" +
-                        //     "</div>\n" +
-                        //     "</td>\n" +
-                        //     "</tr>"
-                        // );
-                        // //增加样式
-                        // var children = $("tr")[1].children;
-                        // for (var i=0; i<5; i++){
-                        //     $(children[i]).css('color', 'green');
-                        // }
                     } else {
                         layer.alert(data.msg, {
                             title: '新增失败'

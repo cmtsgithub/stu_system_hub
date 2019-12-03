@@ -2,13 +2,11 @@ package com.stu.controller;
 
 import com.stu.pojo.StuMajor;
 import com.stu.service.StuMajorService;
+import com.stu.utils.JsonResult;
 import com.stu.utils.JsonUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -33,5 +31,25 @@ public class MajorController {
             return callback+"("+ json +")";
         }
         return json;
+    }
+
+    /**
+     * 根据专业编号，返回一个专业对象
+     * @param majorId 专业编号
+     * @param callback 回调函数
+     * @return String 回调函数 包含 专业对象
+     */
+    @ResponseBody
+    @RequestMapping(value = "/getStuMajor", method = RequestMethod.GET, produces= "text/plain;charset=UTF-8")
+    public String getStuAcademy(@RequestParam Integer majorId, @RequestParam("callback") String callback) {
+        StuMajor stuMajor = stuMajorService.selectByPrimaryKey(majorId);
+        if(stuMajor != null){
+            String json = JsonUtils.objectToJson(stuMajor);
+            if(callback != null){
+                return callback+"("+ json +")";
+            }
+            return json;
+        }
+        return null;
     }
 }
