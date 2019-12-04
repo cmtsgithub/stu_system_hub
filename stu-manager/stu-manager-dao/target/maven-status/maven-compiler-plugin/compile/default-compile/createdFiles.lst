@@ -1,3 +1,3 @@
-com\stu\App.class
-com\stu\mapper\StuBaseMsgMapper.class
-com\stu\mapper\StuStudyMsgMapper.class
+com/stu/App.class
+com/stu/mapper/StuBaseMsgMapper.class
+com/stu/mapper/StuStudyMsgMapper.class
