@@ -1,9 +1,6 @@
 package com.stu.mapper;
 
 import com.stu.pojo.StuAdmin;
-import com.stu.pojo.StuAdminExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
 public interface StuAdminMapper {
 
