@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/stu-academy-web" />
+    <file type="web" url="file://$PROJECT_DIR$/stu-academy/stu-academy-service" />
+    <file type="web" url="file://$PROJECT_DIR$/stu-course/stu-course-service" />
+    <file type="web" url="file://$PROJECT_DIR$/stu-manager-web" />
+    <file type="web" url="file://$PROJECT_DIR$/stu-manager/stu-manager-service" />
+    <file type="web" url="file://$PROJECT_DIR$/stu-sso-web" />
+    <file type="web" url="file://$PROJECT_DIR$/stu-sso/stu-sso-service" />
+  </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/stu-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/fastdfs_client/pom.xml" />
+        <option value="$PROJECT_DIR$/stu-manager/pom.xml" />
+        <option value="$PROJECT_DIR$/stu-common/pom.xml" />
+        <option value="$PROJECT_DIR$/stu-academy/pom.xml" />
+        <option value="$PROJECT_DIR$/stu-academy-web/pom.xml" />
+        <option value="$PROJECT_DIR$/stu-manager-web/pom.xml" />
+        <option value="$PROJECT_DIR$/stu-course/pom.xml" />
+        <option value="$PROJECT_DIR$/stu-sso/pom.xml" />
+        <option value="$PROJECT_DIR$/stu-sso-web/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>

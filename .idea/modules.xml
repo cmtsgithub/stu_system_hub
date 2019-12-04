@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/fastdfs_client/fastdfs_client.iml" filepath="$PROJECT_DIR$/fastdfs_client/fastdfs_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-academy/stu-academy.iml" filepath="$PROJECT_DIR$/stu-academy/stu-academy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-academy/stu-academy-dao/stu-academy-dao.iml" filepath="$PROJECT_DIR$/stu-academy/stu-academy-dao/stu-academy-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-academy/stu-academy-interface/stu-academy-interface.iml" filepath="$PROJECT_DIR$/stu-academy/stu-academy-interface/stu-academy-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-academy/stu-academy-pojo/stu-academy-pojo.iml" filepath="$PROJECT_DIR$/stu-academy/stu-academy-pojo/stu-academy-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-academy/stu-academy-service/stu-academy-service.iml" filepath="$PROJECT_DIR$/stu-academy/stu-academy-service/stu-academy-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-academy-web/stu-academy-web.iml" filepath="$PROJECT_DIR$/stu-academy-web/stu-academy-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-common/stu-common.iml" filepath="$PROJECT_DIR$/stu-common/stu-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-course/stu-course.iml" filepath="$PROJECT_DIR$/stu-course/stu-course.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-course/stu-course-dao/stu-course-dao.iml" filepath="$PROJECT_DIR$/stu-course/stu-course-dao/stu-course-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-course/stu-course-interface/stu-course-interface.iml" filepath="$PROJECT_DIR$/stu-course/stu-course-interface/stu-course-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-course/stu-course-pojo/stu-course-pojo.iml" filepath="$PROJECT_DIR$/stu-course/stu-course-pojo/stu-course-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-course/stu-course-service/stu-course-service.iml" filepath="$PROJECT_DIR$/stu-course/stu-course-service/stu-course-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-manager/stu-manager.iml" filepath="$PROJECT_DIR$/stu-manager/stu-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-manager/stu-manager-dao/stu-manager-dao.iml" filepath="$PROJECT_DIR$/stu-manager/stu-manager-dao/stu-manager-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-manager/stu-manager-interface/stu-manager-interface.iml" filepath="$PROJECT_DIR$/stu-manager/stu-manager-interface/stu-manager-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-manager/stu-manager-pojo/stu-manager-pojo.iml" filepath="$PROJECT_DIR$/stu-manager/stu-manager-pojo/stu-manager-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-manager/stu-manager-service/stu-manager-service.iml" filepath="$PROJECT_DIR$/stu-manager/stu-manager-service/stu-manager-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-manager-web/stu-manager-web.iml" filepath="$PROJECT_DIR$/stu-manager-web/stu-manager-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-parent/stu-parent.iml" filepath="$PROJECT_DIR$/stu-parent/stu-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-sso/stu-sso.iml" filepath="$PROJECT_DIR$/stu-sso/stu-sso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-sso/stu-sso-dao/stu-sso-dao.iml" filepath="$PROJECT_DIR$/stu-sso/stu-sso-dao/stu-sso-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-sso/stu-sso-interface/stu-sso-interface.iml" filepath="$PROJECT_DIR$/stu-sso/stu-sso-interface/stu-sso-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-sso/stu-sso-pojo/stu-sso-pojo.iml" filepath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/stu-sso-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-sso/stu-sso-service/stu-sso-service.iml" filepath="$PROJECT_DIR$/stu-sso/stu-sso-service/stu-sso-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/stu-sso-web/stu-sso-web.iml" filepath="$PROJECT_DIR$/stu-sso-web/stu-sso-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/stu_system_hub.iml" filepath="$PROJECT_DIR$/.idea/stu_system_hub.iml" />
+    </modules>
+  </component>
+</project>
