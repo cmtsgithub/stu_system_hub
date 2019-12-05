@@ -22,7 +22,7 @@
     <!-- 自动扫描该包 @controller注解的类-->  
     <context:component-scan base-package="com.stu.controller"/>
     
-    <!-- 加载图片服务器URL配置文件 --> 
+    <!-- 加载配置文件 -->
     <context:property-placeholder location="classpath:resource/resource.properties"/>
 
 	<!--静态资源映射器-->

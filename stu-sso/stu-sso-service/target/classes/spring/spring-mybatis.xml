@@ -29,7 +29,7 @@
 	<!-- 用dubbo协议在20880端口暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20883" />
 	<!-- 声明需要暴露的服务接口 -->
-	<dubbo:service interface="com.stu.service.AdminLoginService" ref="adminLoginService" timeout="1000000"/>
+	<dubbo:service interface="com.stu.service.AdminLoginService" ref="adminLoginServiceImpl" timeout="1000000"/>
 
     <!-- 加载配置文件 -->
 	<context:property-placeholder location="classpath:properties/*.properties" />
@@ -54,23 +54,6 @@
                  <value>classpath:com/stu/mapper/*.xml</value>
             </array>
         </property>
-		<!-- pageHelper插件拦截器 -->
-        <property name="plugins">
-		    <array>
-		      <bean class="com.github.pagehelper.PageInterceptor" >
-		      	<!-- 这里的几个配置主要演示如何使用，如果不理解，一定要去掉下面的配置 -->
-                    <property name="properties">
-                        <value>
-                            helperDialect=mysql
-                            reasonable=true
-                            supportMethodsArguments=true
-                            params=count=countSql
-                            autoRuntimeDialect=true
-                        </value>
-                    </property>
-                 </bean>
-		    </array>
-		</property>
     </bean>
 
     <!-- DAO接口所在包名，Spring会自动查找其下的类 动态代理实现 不用写dao的实现类-->
@@ -109,7 +92,7 @@
 
 	<!-- redis单机版 -->
 	<bean id="jedisPool" class="redis.clients.jedis.JedisPool">
-		<constructor-arg name="host" value="192.168.1.110" />
+		<constructor-arg name="host" value="192.168.1.104" />
 		<constructor-arg name="port" value="6379" />
 	</bean>
 	<bean id="jedisClientPool" class="com.stu.utils.jedis.JedisClientPool"></bean>

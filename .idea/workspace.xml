@@ -1,300 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4dc045e9-1687-46c0-8eb2-201c6dee9eae" name="Default Changelist" comment="1.sso管理员前台登陆页面完成">
-      <change afterPath="$PROJECT_DIR$/stu-common/src/main/java/com/stu/utils/CookieUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/java/com/stu/controller/AdminLoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/java/com/stu/controller/PageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/resources/resource/resource.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/resources/spring/springmvc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/WEB-INF/jsp/page/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/WEB-INF/log4j.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/css/admin.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/css/amazeui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/css/amazeui.jqgrid.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/css/component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/css/core.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/css/font-awesome.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/css/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/css/menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/css/page/form.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/css/page/typography.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/fonts/FontAwesome.otf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/fonts/fontawesome-webfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/img/avatar-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/img/avatar-10.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/img/avatar-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/img/avatar-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/img/avatar-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/img/avatar-5.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/img/bg1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/img/inform.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/img/rember.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/img/search.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/js/amazeui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/js/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/js/blockUI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/js/charts/columnarChart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/js/charts/echarts.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/js/charts/indexChart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/js/charts/lineChart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/js/charts/pieChart.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/assets/js/jquery-2.1.0.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/css/layui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/css/layui.mobile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/css/modules/code.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/css/modules/laydate/default/laydate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/css/modules/layer/default/icon-ext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/css/modules/layer/default/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/css/modules/layer/default/layer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/css/modules/layer/default/loading-0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/css/modules/layer/default/loading-1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/css/modules/layer/default/loading-2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/font/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/font/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/font/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/font/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/font/iconfont.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/10.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/11.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/12.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/13.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/14.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/15.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/16.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/17.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/18.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/19.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/20.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/21.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/22.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/23.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/24.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/25.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/26.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/27.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/28.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/29.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/30.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/31.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/33.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/34.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/35.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/36.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/37.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/38.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/39.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/4.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/40.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/41.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/42.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/43.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/44.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/45.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/46.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/47.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/48.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/49.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/5.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/50.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/51.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/52.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/53.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/54.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/55.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/56.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/57.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/58.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/59.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/6.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/60.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/61.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/62.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/63.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/64.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/65.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/66.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/67.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/68.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/69.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/7.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/70.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/71.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/8.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/images/face/9.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/js/browse/browse-judge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/js/login/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/code.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/colorpicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/element.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/flow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/laydate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/layedit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/layer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/laypage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/laytpl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/mobile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/rate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/slider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/transfer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/tree.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/upload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/lay/modules/util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/layui.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/layui.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/classes/com/stu/mapper/StuAdminMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/classes/com/stu/mapper/StuAdminMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/stu-sso-dao.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-interface/src/main/java/com/stu/service/AdminLoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-interface/target/classes/com/stu/service/AdminLoginService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-interface/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-interface/target/stu-sso-interface.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/target/classes/com/stu/pojo/StuAdmin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/target/stu-sso-pojo.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/java/com/stu/service/impl/AdminLoginServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/java/com/stu/utils/jedis/JedisClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/java/com/stu/utils/jedis/JedisClientCluster.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/java/com/stu/utils/jedis/JedisClientPool.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/resources/properties/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/resources/properties/resource.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/resources/spring/spring-mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/test/java/com/stu/test/RedisTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/test/resources/properties/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/test/resources/properties/resource.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/test/resources/spring/spring-mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/classes/com/stu/service/impl/AdminLoginServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/classes/com/stu/utils/jedis/JedisClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/classes/com/stu/utils/jedis/JedisClientCluster.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/classes/com/stu/utils/jedis/JedisClientPool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/classes/properties/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/classes/properties/resource.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/classes/spring/spring-mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/maven-archiver/pom.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service.war" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/com/stu/service/impl/AdminLoginServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/com/stu/utils/jedis/JedisClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/com/stu/utils/jedis/JedisClientCluster.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/com/stu/utils/jedis/JedisClientPool.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/properties/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/properties/resource.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/spring/spring-mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/aopalliance-1.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/aspectjweaver-1.8.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/c3p0-0.9.1.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-codec-1.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-io-1.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-lang3-3.3.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-net-3.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-pool2-2.4.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/dom4j-1.6.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/druid-1.0.9.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/dubbo-2.5.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/httpclient-4.5.6.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/httpcore-4.4.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jackson-annotations-2.4.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jackson-core-2.4.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jackson-databind-2.4.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/javassist-3.15.0-GA.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jedis-2.9.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jline-0.9.94.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/joda-time-2.5.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jsqlparser-2.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jstl-1.0.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jxl-2.6.12.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/log4j-1.2.16.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/mybatis-3.2.8.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/mybatis-paginator-1.2.15.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/mybatis-spring-1.2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/mysql-connector-java-5.1.32.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/netty-3.7.0.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/pagehelper-5.1.10.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/poi-3.9.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/poi-ooxml-3.9.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/poi-ooxml-schemas-3.9.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/quartz-2.2.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/slf4j-api-1.6.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/slf4j-log4j12-1.6.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-aop-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-aspects-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-beans-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-context-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-context-support-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-core-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-expression-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-jdbc-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-jms-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-messaging-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-tx-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-web-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-webmvc-4.2.4.RELEASE.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/standard-1.0.4.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/stax-api-1.0.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/stu-common-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/stu-sso-dao-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/stu-sso-interface-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/stu-sso-pojo-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/xalan-2.6.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/xml-apis-1.0.b2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/xmlbeans-2.3.0.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/zkclient-0.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/zookeeper-3.4.7.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/META-INF/stu-sso-service.kotlin_module" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/com/stu/test/RedisTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/properties/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/properties/resource.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/resources/properties/db.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/resources/properties/resource.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/resources/spring/spring-mybatis.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/spring/spring-mybatis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/stu_sso_web_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/stu_sso_web_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_jexcelapi_jxl_2_6_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_jexcelapi_jxl_2_6_12.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_3_9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_3_9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_poi_poi_ooxml_schemas_3_9.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_3_0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlbeans_xmlbeans_2_3_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__stax_stax_api_1_0_1.xml" afterDir="false" />
+    <list default="true" id="4dc045e9-1687-46c0-8eb2-201c6dee9eae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/stu_sso_service_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/stu_sso_service_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stu-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stu-common/stu-common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-common/stu-common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stu-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/stu-common/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stu-common/target/stu-common.jar" beforeDir="false" afterPath="$PROJECT_DIR$/stu-common/target/stu-common.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stu-manager/stu-manager-interface/stu-manager-interface.iml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-manager/stu-manager-interface/stu-manager-interface.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stu-manager/stu-manager-service/stu-manager-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-manager/stu-manager-service/stu-manager-service.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stu-manager/stu-manager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-manager/stu-manager.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stu-sso-web/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso-web/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stu-sso-web/stu-sso-web.iml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso-web/stu-sso-web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso-web/src/main/java/com/stu/controller/AdminLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso-web/src/main/java/com/stu/controller/AdminLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso-web/src/main/resources/resource/resource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso-web/src/main/resources/resource/resource.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso-web/src/main/resources/spring/springmvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso-web/src/main/resources/spring/springmvc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/WEB-INF/jsp/page/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/WEB-INF/jsp/page/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/js/login/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso-web/src/main/webapp/js/login/login.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-dao/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-dao/src/main/java/com/stu/mapper/StuAdminMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/src/main/java/com/stu/mapper/StuAdminMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-dao/src/main/java/com/stu/mapper/StuAdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/src/main/java/com/stu/mapper/StuAdminMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-dao/stu-sso-dao.iml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/stu-sso-dao.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/classes/com/stu/mapper/StuAdminMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/classes/com/stu/mapper/StuAdminMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-dao/target/stu-sso-dao.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-interface/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-interface/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-interface/target/stu-sso-interface.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/src/main/java/com/stu/pojo/StuAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/src/main/java/com/stu/pojo/StuAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/target/classes/com/stu/pojo/StuAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/target/classes/com/stu/pojo/StuAdmin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/target/stu-sso-pojo.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/resources/spring/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/resources/spring/spring-mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/test/java/com/stu/test/RedisTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/test/resources/properties/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/test/resources/properties/resource.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/src/test/resources/spring/spring-mybatis.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/stu-sso-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/stu-sso-service.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/classes/spring/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/classes/spring/spring-mybatis.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service.war" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/com/stu/service/impl/AdminLoginServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/com/stu/utils/jedis/JedisClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/com/stu/utils/jedis/JedisClientCluster.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/com/stu/utils/jedis/JedisClientPool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/properties/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/properties/resource.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/classes/spring/spring-mybatis.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/aopalliance-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/aspectjweaver-1.8.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/c3p0-0.9.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-codec-1.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-io-1.3.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-lang3-3.3.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-logging-1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-net-3.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/commons-pool2-2.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/dom4j-1.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/druid-1.0.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/dubbo-2.5.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/httpclient-4.5.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/httpcore-4.4.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jackson-annotations-2.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jackson-core-2.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jackson-databind-2.4.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/javassist-3.15.0-GA.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jedis-2.9.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jline-0.9.94.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/joda-time-2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jsqlparser-2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jstl-1.0.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/jxl-2.6.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/log4j-1.2.16.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/mybatis-3.2.8.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/mybatis-paginator-1.2.15.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/mybatis-spring-1.2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/mysql-connector-java-5.1.32.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/netty-3.7.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/pagehelper-5.1.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/poi-3.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/poi-ooxml-3.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/poi-ooxml-schemas-3.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/quartz-2.2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/slf4j-api-1.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/slf4j-log4j12-1.6.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-aop-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-aspects-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-beans-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-context-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-context-support-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-core-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-expression-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-jdbc-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-jms-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-messaging-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-tx-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-web-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/spring-webmvc-4.2.4.RELEASE.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/standard-1.0.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/stax-api-1.0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/stu-common-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/stu-sso-dao-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/stu-sso-interface-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/stu-sso-pojo-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/xalan-2.6.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/xml-apis-1.0.b2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/xmlbeans-2.3.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/zkclient-0.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/lib/zookeeper-3.4.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/stu-sso-service/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/META-INF/stu-sso-service.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/com/stu/test/RedisTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/properties/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/properties/resource.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/resources/properties/db.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/resources/properties/resource.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/resources/spring/spring-mybatis.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/stu-sso/stu-sso-service/target/test-classes/spring/spring-mybatis.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -383,6 +199,7 @@
             <option name="goals">
               <list>
                 <option value="-Dmaven.tomcat.port=8082" />
+                <option value="clean" />
                 <option value="tomcat7:run" />
               </list>
             </option>
@@ -501,6 +318,32 @@
       </MavenSettings>
       <method v="2" />
     </configuration>
+    <configuration name="stu-sso [clean,tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="tomcat7:run" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/stu-sso" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
     <configuration name="stu-sso-web [clean,tomcat7:run]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -531,6 +374,7 @@
       <item itemvalue="JUnit.RedisTest.testRedisClient" />
       <item itemvalue="JUnit.RedisTest.testLogin" />
       <item itemvalue="Maven.stu-sso-web [clean,tomcat7:run]" />
+      <item itemvalue="Maven.stu-sso [clean,tomcat7:run]" />
       <item itemvalue="Maven.stu-manager [clean,tomcat7:run]" />
       <item itemvalue="Maven.stu-academy [-Dmaven.tomcat.port=8082...]" />
       <item itemvalue="Maven.stu-course [clean,tomcat7:run]" />
@@ -571,7 +415,8 @@
       <workItem from="1575468287951" duration="500000" />
       <workItem from="1575469449479" duration="48000" />
       <workItem from="1575469519940" duration="30000" />
-      <workItem from="1575520033472" duration="5163000" />
+      <workItem from="1575520033472" duration="11539000" />
+      <workItem from="1575535884251" duration="713000" />
     </task>
     <task id="LOCAL-00001" summary="1.sso项目工程搭建">
       <created>1575448984358</created>
@@ -622,7 +467,14 @@
       <option name="project" value="LOCAL" />
       <updated>1575450152536</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="1.sso管理员前台登陆页面完成">
+      <created>1575525554727</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1575525554727</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -638,10 +490,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="320" y="115" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1575427372984" />
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575525086207">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1575536354806">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1575525086207" />
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1575536354806" />
     <state x="533" y="166" key="#com.intellij.ide.util.MemberChooser" timestamp="1575453183407">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -662,37 +514,49 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state width="435" height="466" key="DebuggerActiveHint/0.0.1440.900@0.0.1440.900" timestamp="1575525220807" />
-    <state width="1398" height="303" key="GridCell.Tab.0.bottom" timestamp="1575525093988">
+    <state width="1398" height="319" key="GridCell.Tab.0.bottom" timestamp="1575536426963">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="303" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1575525093988" />
-    <state width="1398" height="303" key="GridCell.Tab.0.center" timestamp="1575525093987">
+    <state width="1398" height="319" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1575536426963" />
+    <state width="1398" height="319" key="GridCell.Tab.0.bottom/0.23.1440.812@0.23.1440.812" timestamp="1575533052299" />
+    <state width="1398" height="319" key="GridCell.Tab.0.center" timestamp="1575536426962">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="303" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1575525093987" />
-    <state width="1398" height="303" key="GridCell.Tab.0.left" timestamp="1575525093986">
+    <state width="1398" height="319" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1575536426962" />
+    <state width="1398" height="319" key="GridCell.Tab.0.center/0.23.1440.812@0.23.1440.812" timestamp="1575533052298" />
+    <state width="1398" height="319" key="GridCell.Tab.0.left" timestamp="1575536426961">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="303" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1575525093986" />
-    <state width="1398" height="303" key="GridCell.Tab.0.right" timestamp="1575525093987">
+    <state width="1398" height="319" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1575536426961" />
+    <state width="1398" height="319" key="GridCell.Tab.0.left/0.23.1440.812@0.23.1440.812" timestamp="1575533052298" />
+    <state width="1398" height="319" key="GridCell.Tab.0.right" timestamp="1575536426963">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="303" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1575525093987" />
-    <state width="1398" height="303" key="GridCell.Tab.1.bottom" timestamp="1575525208128">
-      <screen x="0" y="23" width="1440" height="814" />
+    <state width="1398" height="319" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1575536426963" />
+    <state width="1398" height="319" key="GridCell.Tab.0.right/0.23.1440.812@0.23.1440.812" timestamp="1575533052299" />
+    <state width="1398" height="295" key="GridCell.Tab.1.bottom" timestamp="1575535852207">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="295" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1575535852207" />
+    <state width="1398" height="295" key="GridCell.Tab.1.bottom/0.23.1440.812@0.23.1440.812" timestamp="1575533052292" />
     <state width="1398" height="303" key="GridCell.Tab.1.bottom/0.23.1440.814@0.23.1440.814" timestamp="1575525208128" />
-    <state width="1398" height="303" key="GridCell.Tab.1.center" timestamp="1575525208126">
-      <screen x="0" y="23" width="1440" height="814" />
+    <state width="1398" height="295" key="GridCell.Tab.1.center" timestamp="1575535852207">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="295" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1575535852207" />
+    <state width="1398" height="295" key="GridCell.Tab.1.center/0.23.1440.812@0.23.1440.812" timestamp="1575533052291" />
     <state width="1398" height="303" key="GridCell.Tab.1.center/0.23.1440.814@0.23.1440.814" timestamp="1575525208126" />
-    <state width="1398" height="303" key="GridCell.Tab.1.left" timestamp="1575525208124">
-      <screen x="0" y="23" width="1440" height="814" />
+    <state width="1398" height="295" key="GridCell.Tab.1.left" timestamp="1575535852206">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="295" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1575535852206" />
+    <state width="1398" height="295" key="GridCell.Tab.1.left/0.23.1440.812@0.23.1440.812" timestamp="1575533052291" />
     <state width="1398" height="303" key="GridCell.Tab.1.left/0.23.1440.814@0.23.1440.814" timestamp="1575525208124" />
-    <state width="1398" height="303" key="GridCell.Tab.1.right" timestamp="1575525208127">
-      <screen x="0" y="23" width="1440" height="814" />
+    <state width="1398" height="295" key="GridCell.Tab.1.right" timestamp="1575535852207">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
+    <state width="1398" height="295" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1575535852207" />
+    <state width="1398" height="295" key="GridCell.Tab.1.right/0.23.1440.812@0.23.1440.812" timestamp="1575533052291" />
     <state width="1398" height="303" key="GridCell.Tab.1.right/0.23.1440.814@0.23.1440.814" timestamp="1575525208127" />
     <state x="433" y="173" key="MultipleFileMergeDialog" timestamp="1575450000658">
       <screen x="0" y="0" width="1440" height="900" />
@@ -706,10 +570,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="105" y="63" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1575469491847" />
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1575450160624">
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2" timestamp="1575525575051">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1575450160624" />
+    <state x="320" y="190" key="Vcs.Push.Dialog.v2/0.0.1440.900@0.0.1440.900" timestamp="1575525575051" />
     <state x="509" y="374" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1575468569958">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -731,16 +595,5 @@
     </state>
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1575525193614" />
     <state x="385" y="196" width="670" height="676" key="search.everywhere.popup/0.23.1440.812@0.23.1440.812" timestamp="1575453151755" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/stu-sso-web/src/main/java/com/stu/controller/AdminLoginController.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

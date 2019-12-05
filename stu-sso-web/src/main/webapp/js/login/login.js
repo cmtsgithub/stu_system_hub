@@ -147,68 +147,32 @@ jQuery(function($){
 //		}else{
 //			return false;
 //		}
-        if($("#mmsrddcshkzfs").val()=="1"){
+        if($("#mmsrddcshkzfs").val()=="0"){
             var isSuccess = false;
             $.ajax({
-                url		:_path+'/xtgl/login_cxDlxgxx.html',
+                url		:_path+'/admin/login',
                 async	: false,
                 type	:"post",
                 dataType:"json",
-                data	:{"yhm":$("#yhm").val()},
+                data	:$('#login_form').serialize(),
                 success	:function(data){
-                    if(data=="0"){
+                    if(data.status == 400){
                         //alert("用户不存在");
                         if($(".btn-lang-enabled").val()=="en_US"){
-                            $("#tips").empty().append(ts + "User does not exist");
+                            $("#tips").empty().append(ts + "User does not exist or password error");
                             $("#tips").show();
                         }else{
-                            $("#tips").empty().append(ts + "用户不存在");
+                            $("#tips").empty().append(ts + "用户不存在或密码错误");
                             $("#tips").show();
                         }
                         isSuccess = false;
                     }else{
-                        var dataArr=data.split("_");
-                        var yzcskz=$("#yzcskz").val();
-                        if(dataArr[0]>=yzcskz){
-                            var fz=Number($("#dlsbsdsj").val());//设置的锁定时间（分钟)
-                            var ms=fz*60000;//转成秒数
-                            var timestamp = (new Date()).valueOf(); //当前时间戳
-                            if((parseInt(dataArr[1])+parseInt(ms))>parseInt(timestamp)){
-                                var sj=(parseInt(dataArr[1])+parseInt(ms))-parseInt(timestamp);
-                                var minutes = parseInt((sj % (1000 * 60 * 60)) / (1000 * 60)*60);
-                                if($(".btn-lang-enabled").val()=="en_US"){
-                                    $("#tips").empty().append(ts + "You have exceeded the maximum number of login failures. Please sign in after "+minutes+" seconds");
-                                    $("#tips").show();
-                                }else{
-                                    $("#tips").empty().append(ts + "您已超过最大登录失败次数，请在"+minutes+"秒后再登");
-                                    $("#tips").show();
-                                }
-                                //alert("您已超过最大登录失败次数，请在"+minutes+"秒后再登");
-                                isSuccess = false;
-                            }else{
-                                //锁定时间过了就更新登录失败次数为0
-                                $.ajax({
-                                    url		:_path+'/xtgl/login_cxUpdateDlsbcs.html',
-                                    async	: false,
-                                    type	:"post",
-                                    dataType:"json",
-                                    data	:{"yhm":$("#yhm").val()},
-                                    success	:function(data){
-                                        if(data=="操作成功"){
-                                            isSuccess = true;
-                                        }
-                                    }
-                                })
-                            }
-                        }else{
-                            isSuccess = true;
-                        }
+                        isSuccess = true;
                     }
                 }
             });
-
             if(isSuccess){
-                document.forms[0].submit();
+                window.location.href = "http://localhost:8081/stuBaseMsgPage";
             }else{
                 //5.让登陆按钮重新有效
                 $(loginBtn).removeAttr('disabled');
@@ -217,11 +181,7 @@ jQuery(function($){
                 return false;
             }
         }else{
-
-
-
-
-            document.forms[0].submit();
+            // document.forms[0].submit();
         }
 
     });

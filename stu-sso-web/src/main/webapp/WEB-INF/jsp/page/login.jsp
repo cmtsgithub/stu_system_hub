@@ -147,7 +147,7 @@
 
         </div>
         <div class="col-sm-4 sl_log_rt">
-            <form class="form-horizontal" role="form" action="/admin/login" method="post">
+            <form class="form-horizontal" role="form" method="post" id="login_form">
                 <input type="hidden" id="csrftoken" name="csrftoken" value="8ec5487c-f416-42dc-b61c-fca176aa6935,8ec5487cf41642dcb61cfca176aa6935"/>
                 <h5>用户登录</h5>
                 <!-- 防止浏览器自动填充密码 -->

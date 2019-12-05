@@ -17,7 +17,7 @@
     from stu_admin
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.string" >
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />
     from stu_admin
