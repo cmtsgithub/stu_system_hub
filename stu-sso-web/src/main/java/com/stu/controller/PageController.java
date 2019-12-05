@@ -14,7 +14,7 @@ public class PageController {
      * 跳转到登陆页面
      * @return jsp路径
      */
-    @RequestMapping(value = "/admin/login/page", method = RequestMethod.GET)
+    @RequestMapping(value = "/user/login/page", method = RequestMethod.GET)
     public String loginPage(){
         return "login";
     }

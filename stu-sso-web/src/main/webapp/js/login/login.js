@@ -150,7 +150,7 @@ jQuery(function($){
         if($("#mmsrddcshkzfs").val()=="0"){
             var isSuccess = false;
             $.ajax({
-                url		:_path+'/admin/login',
+                url		:_path+'/user/login',
                 async	: false,
                 type	:"post",
                 dataType:"json",

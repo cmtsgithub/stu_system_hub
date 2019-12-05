@@ -7,7 +7,8 @@
                 <img src="../../../../assets/img/avatar-1.jpg" alt="user-img" title="Mat Helme" class="img-circle img-thumbnail img-responsive">
                 <div class="user-status offline"><i class="am-icon-dot-circle-o" aria-hidden="true"></i></div>
             </div>
-            <h5><a href="#">Mat Helme</a> </h5>
+            <h5><a href="#" id="username_a">Mat Helme</a> </h5>
+            <h5><a href="javascript:void(0);" onclick="logout()" id="logout_a" style="color: hotpink">退出登陆</a> </h5>
             <ul class="list-inline">
                 <li>
                     <a href="#">
@@ -51,3 +52,4 @@
         </ul>
     </div>
 </div>
+

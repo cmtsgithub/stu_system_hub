@@ -9,6 +9,7 @@ import com.stu.utils.jedis.JedisClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.UUID;
 
@@ -59,4 +60,43 @@ public class AdminLoginServiceImpl implements AdminLoginService {
         //返回token
         return JsonResult.ok(token);
     }
+
+    /**
+     * 通过json获取用户信息
+     * @param token token
+     * @return JsonResult
+     */
+    @Override
+    public JsonResult getUserByToken(String token) {
+        //拼接key
+        String key = SESSION_PRE + ":" + token;
+        //查询redis
+        String json = jedisClient.get(key);
+        if(StringUtils.isEmpty(json)){
+            return JsonResult.build(400, "用户登陆已过期");
+        }
+        return JsonResult.ok(JsonUtils.jsonToPojo(json, StuAdmin.class));
+    }
+
+    /**
+     * 用户登出
+     * @param token token
+     * @return JsonResult
+     */
+    @Override
+    public JsonResult logout(String token) {
+        //拼接key
+        String key = SESSION_PRE + ":" + token;
+        //查询token是否存在
+        Boolean exists = jedisClient.exists(key);
+        if(!exists){
+            return JsonResult.build(400, "用户登陆已过期");
+        }
+        //设置删除此token的key
+        jedisClient.del(key);
+        //返回
+        return JsonResult.ok();
+    }
+
+
 }
