@@ -15,4 +15,6 @@ public interface StuAdminMapper {
     int updateByPrimaryKeySelective(StuAdmin record);
 
     int updateByPrimaryKey(StuAdmin record);
+
+    StuAdmin selectByName(String name);
 }

@@ -2,4 +2,5 @@ com/stu/utils/JsonUtils.class
 com/stu/utils/BeanMapUtils.class
 com/stu/utils/FileUtils.class
 com/stu/utils/DateUtils.class
+com/stu/utils/CookieUtils.class
 com/stu/utils/ExcelUtils.class
