@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 /**
  * 管理员登陆控制器
@@ -43,18 +44,24 @@ public class AdminLoginController {
      */
     @RequestMapping(value = "/user/login", method = RequestMethod.POST)
     @ResponseBody
-    public JsonResult login(String name, String password, HttpServletRequest request, HttpServletResponse response){
+    public JsonResult login(String name, String password, String redirect, HttpServletRequest request, HttpServletResponse response){
         JsonResult result = adminLoginService.login(name, password);
         //判断用户登陆情况
         if(result.getStatus() != 200){
             return result;
         }
         //取出token
-        String token = result.getData().toString();
+        Map<String, String> map = (Map<String, String>) result.getData();
+        String token = map.get("token");
         // 在返回结果之前，设置cookie(即将token写入cookie)
         // 1.cookie跨域
         // 2.设置cookie的有效期
         CookieUtils.setCookie(request, response, COOKIE_TOKEN_KEY, token, COOKIE_EXPIRE);
+        //判断愿页面url是否为空
+        if(!org.springframework.util.StringUtils.isEmpty(redirect)){
+            //设置回调url
+            map.put("redirect", redirect);
+        }
         // 返回结果
         return result;
     }
@@ -77,7 +84,14 @@ public class AdminLoginController {
         return JsonUtils.objectToJson(result); // 统一返回字符串
     }
 
-    // 传统支持jsonp的方案
+    /**
+     * 用户登出
+     * @param token token
+     * @param callback 回调函数
+     * @param request request
+     * @param response response
+     * @return 拼接的json字符串
+     */
     @RequestMapping(value="/user/logout/{token}", produces= MediaType.APPLICATION_JSON_UTF8_VALUE)
     @ResponseBody
     public String logout(@PathVariable String token, String callback,

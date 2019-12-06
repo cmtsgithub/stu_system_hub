@@ -1,6 +1,7 @@
 package com.stu.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -15,7 +16,9 @@ public class PageController {
      * @return jsp路径
      */
     @RequestMapping(value = "/user/login/page", method = RequestMethod.GET)
-    public String loginPage(){
+    public String loginPage(String redirect, Model model){
+        //保存跳转信息到页面
+        model.addAttribute("redirect", redirect);
         return "login";
     }
 }

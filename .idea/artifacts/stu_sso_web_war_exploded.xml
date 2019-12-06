@@ -45,8 +45,8 @@
           <element id="archive" name="stu-sso-interface-1.0-SNAPSHOT.jar">
             <element id="module-output" name="stu-sso-interface" />
           </element>
-          <element id="archive" name="stu-sso-pojo-1.0-SNAPSHOT.jar">
-            <element id="module-output" name="stu-sso-pojo" />
+          <element id="archive" name="stu-manager-pojo-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="stu-manager-pojo" />
           </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-context:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:4.2.4.RELEASE" />

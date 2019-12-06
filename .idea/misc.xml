@@ -27,6 +27,12 @@
         <option value="$PROJECT_DIR$/stu-sso-web/pom.xml" />
       </list>
     </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/stu-sso/stu-sso-dao/pom.xml" />
+        <option value="$PROJECT_DIR$/stu-sso/stu-sso-pojo/pom.xml" />
+      </set>
+    </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

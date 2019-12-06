@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Service
@@ -58,7 +60,9 @@ public class AdminLoginServiceImpl implements AdminLoginService {
         //设置key过期时间
         jedisClient.expire(key, SESSION_EXPIRE);
         //返回token
-        return JsonResult.ok(token);
+        Map<String, String> map = new HashMap<>();
+        map.put("token", token);
+        return JsonResult.ok(map);
     }
 
     /**

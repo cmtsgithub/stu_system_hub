@@ -23,9 +23,7 @@
       <module fileurl="file://$PROJECT_DIR$/stu-manager-web/stu-manager-web.iml" filepath="$PROJECT_DIR$/stu-manager-web/stu-manager-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/stu-parent/stu-parent.iml" filepath="$PROJECT_DIR$/stu-parent/stu-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/stu-sso/stu-sso.iml" filepath="$PROJECT_DIR$/stu-sso/stu-sso.iml" />
-      <module fileurl="file://$PROJECT_DIR$/stu-sso/stu-sso-dao/stu-sso-dao.iml" filepath="$PROJECT_DIR$/stu-sso/stu-sso-dao/stu-sso-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/stu-sso/stu-sso-interface/stu-sso-interface.iml" filepath="$PROJECT_DIR$/stu-sso/stu-sso-interface/stu-sso-interface.iml" />
-      <module fileurl="file://$PROJECT_DIR$/stu-sso/stu-sso-pojo/stu-sso-pojo.iml" filepath="$PROJECT_DIR$/stu-sso/stu-sso-pojo/stu-sso-pojo.iml" />
       <module fileurl="file://$PROJECT_DIR$/stu-sso/stu-sso-service/stu-sso-service.iml" filepath="$PROJECT_DIR$/stu-sso/stu-sso-service/stu-sso-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/stu-sso-web/stu-sso-web.iml" filepath="$PROJECT_DIR$/stu-sso-web/stu-sso-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/stu_system_hub.iml" filepath="$PROJECT_DIR$/.idea/stu_system_hub.iml" />

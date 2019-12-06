@@ -16,6 +16,7 @@
 
 <%--获取登陆信息--%>
 <script>
+    let loginUrl = "http://localhost:8086/user/login/page";
     let _ticket = getCookie("STU_TOKEN");
     if(_ticket !== null || _ticket !== undefined || _ticket !== ''){
         $.ajax({
@@ -28,17 +29,19 @@
                 if(data.status == 200){
                     let username = data.data.name;
                     $("#username_a").text(username);
+                }else{
+                    window.location.href = loginUrl;
                 }
             }
         });
     }else{
         //如果没有token， 则没有登陆，则跳转到登陆页面
-        window.location.href = "http://localhost:8086/user/login/page";
+        window.location.href = loginUrl;
     }
     //读取cookies
     function getCookie(name)
     {
-        var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+        let arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
         if(arr=document.cookie.match(reg))
             return unescape(arr[2]);
         else
@@ -46,7 +49,6 @@
     }
     //用户登出
     function logout() {
-        let loginUrl = "http://localhost:8086/user/login/page";
         let _ticket = getCookie("STU_TOKEN");
         if(!_ticket){
             //如果没有token， 则没有登陆，则跳转到登陆页面

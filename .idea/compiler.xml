@@ -12,21 +12,19 @@
         <module name="stu-academy-dao" />
         <module name="stu-manager-service" />
         <module name="stu-common" />
+        <module name="stu-manager-dao" />
         <module name="fastdfs_client" />
-        <module name="stu-sso-web" />
+        <module name="stu-academy-web" />
         <module name="stu-academy-service" />
         <module name="stu-manager-web" />
-        <module name="stu-sso-interface" />
-        <module name="stu-course-pojo" />
         <module name="stu-sso-service" />
-        <module name="stu-sso-pojo" />
-        <module name="stu-academy-web" />
         <module name="stu-manager-interface" />
+        <module name="stu-course-pojo" />
+        <module name="stu-sso-interface" />
         <module name="stu-academy-pojo" />
         <module name="stu-course-dao" />
-        <module name="stu-sso-dao" />
+        <module name="stu-sso-web" />
         <module name="stu-academy-interface" />
-        <module name="stu-manager-dao" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

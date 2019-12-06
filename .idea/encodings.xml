@@ -26,9 +26,7 @@
     <file url="file://$PROJECT_DIR$/stu-sso-web/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/stu-sso-web/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/stu-sso/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/stu-sso/stu-sso-dao/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/stu-sso/stu-sso-interface/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/stu-sso/stu-sso-pojo/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/stu-sso/stu-sso-service/src/main/resources" charset="UTF-8" />
   </component>

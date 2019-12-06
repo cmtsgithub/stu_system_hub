@@ -51,5 +51,14 @@
 	<dubbo:reference interface="com.stu.service.StuService" id="stuService" timeout="1000000"/>
 	<dubbo:reference interface="com.stu.service.CourseService" id="courseService" timeout="1000000"/>
 
+	<!-- 拦截器配置 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<!-- 拦截订单类请求 -->
+			<mvc:mapping path="/**"/>
+			<bean class="com.stu.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+
 	<mvc:annotation-driven/>
 </beans>

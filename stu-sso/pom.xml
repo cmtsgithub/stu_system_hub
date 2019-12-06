@@ -19,8 +19,6 @@
     <modules>
         <module>stu-sso-interface</module>
         <module>stu-sso-service</module>
-        <module>stu-sso-dao</module>
-        <module>stu-sso-pojo</module>
     </modules>
 
     <properties>

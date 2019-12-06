@@ -1,3 +1,4 @@
 com/stu/App.class
 com/stu/pojo/StuBaseMsg.class
+com/stu/pojo/StuAdmin.class
 com/stu/pojo/StuStudyMsg.class

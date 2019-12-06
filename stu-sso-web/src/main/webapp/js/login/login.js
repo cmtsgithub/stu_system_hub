@@ -148,6 +148,7 @@ jQuery(function($){
 //			return false;
 //		}
         if($("#mmsrddcshkzfs").val()=="0"){
+            let redirectUrl = "";
             var isSuccess = false;
             $.ajax({
                 url		:_path+'/user/login',
@@ -167,12 +168,17 @@ jQuery(function($){
                         }
                         isSuccess = false;
                     }else{
+                        redirectUrl = data.data.redirect;
                         isSuccess = true;
                     }
                 }
             });
             if(isSuccess){
-                window.location.href = "http://localhost:8081/stuBaseMsgPage";
+                if($.trim(redirectUrl) == ''){
+                    window.location.href = "http://localhost:8081/stuBaseMsgPage";
+                }else {
+                    window.location.href = redirectUrl;
+                }
             }else{
                 //5.让登陆按钮重新有效
                 $(loginBtn).removeAttr('disabled');
@@ -181,7 +187,6 @@ jQuery(function($){
                 return false;
             }
         }else{
-            // document.forms[0].submit();
         }
 
     });
