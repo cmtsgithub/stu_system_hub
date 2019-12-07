@@ -12,6 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 用户登陆拦截器 （暂时只实现了对管理员页面进行拦截）
+ */
 public class LoginInterceptor implements HandlerInterceptor {
 
     @Value("${SSO_BASE_URL}")
@@ -32,7 +35,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         if(StringUtils.isEmpty(token)){
             //跳转到登录页面，把用户请求的url作为参数传递给登录页面。
             String redirectUrl = SSO_BASE_URL + SSO_PAGE_LOGIN
-                    + "?redirect=" + httpServletRequest.getRequestURL();
+                    + "?redirect=" + httpServletRequest.getRequestURL() + "&errorCode=12138";
             httpServletResponse.sendRedirect(redirectUrl);
             return false;
         }
@@ -50,7 +53,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         //总结异常
         //跳转到登录页面，把用户请求的url作为参数传递给登录页面。
         String redirectUrl = SSO_BASE_URL + SSO_PAGE_LOGIN
-                + "?redirect=" + httpServletRequest.getRequestURL();
+                + "?redirect=" + httpServletRequest.getRequestURL() + "&errorCode=12138";
         httpServletResponse.sendRedirect(redirectUrl);
         return false;
     }

@@ -3,6 +3,8 @@ document.forms[0].action = (document.forms[0].action)+"?time="+new Date().getTim
 
 var dlArr=[];
 
+
+
 function refreshCode(){
     $("#yzmPic").attr("src", _path + '/kaptcha?time=' + new Date().getTime());
 }

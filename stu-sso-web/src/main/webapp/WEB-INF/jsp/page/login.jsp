@@ -5,6 +5,8 @@
   Time: 13:42
   To change this template use File | Settings | File Templates.
 --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html lang="zh-CN">
 <head>
@@ -225,15 +227,23 @@
 <!-- footer-end -->
 </body>
 <script type="text/javascript">
-    jQuery(document).ready(function() {
-        //$('#localChange').trigger("chosen");
-        /// detectOS();
-        //用户名密码 输错n次 需输入验证码
 
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);//search,查询？后面的参数，并匹配正则
+        if(r!=null)return  unescape(r[2]); return null;
+    }
 
-
-    });
-
+    var error_message=GetQueryString("errorCode");
+    if(error_message !=null && error_message.toString().length>1)
+    {
+        if(error_message.toString() == "12138"){
+            let text = '<span class="glyphicon glyphicon-minus-sign"></span>';
+            $("#tips").empty().append(text + "请登录");
+            $("#tips").show();
+        }
+    }
 
     var dlktsxx="1.学生账号为学号，教职工账号为职工号，初始密码均为证件号码后六位。2.请登陆先维护个人邮箱，方便个人密码找回。3.如密码丢失且未设置找回邮箱，请联系所在学院教学秘书";
     var arr=[];
@@ -287,9 +297,8 @@
             $("#dlktsxx").hide();
         }
 
-
-
     });
+
 </script>
 <script type='text/javascript' src="http://jw.jluzh.com/zftal-ui-v5-1.0.2/assets/plugins/crypto/rsa/jsbn.js?ver=20170713"></script>
 <script type='text/javascript' src="http://jw.jluzh.com/zftal-ui-v5-1.0.2/assets/plugins/crypto/rsa/prng4.js?ver=20170713"></script>
