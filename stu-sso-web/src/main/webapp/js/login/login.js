@@ -177,7 +177,7 @@ jQuery(function($){
             });
             if(isSuccess){
                 if($.trim(redirectUrl) == ''){
-                    window.location.href = "http://localhost:8081/stuBaseMsgPage";
+                    window.location.href = "http://localhost:8081/index";
                 }else {
                     window.location.href = redirectUrl;
                 }

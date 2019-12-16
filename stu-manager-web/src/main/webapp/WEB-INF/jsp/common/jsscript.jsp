@@ -16,6 +16,9 @@
 
 <%--获取登陆信息--%>
 <script>
+    layui.use('layer', function(){
+        var layer = layui.layer;
+    });
     let loginUrl = "http://localhost:8086/user/login/page";
     let _ticket = getCookie("STU_TOKEN");
     if(_ticket !== null || _ticket !== undefined || _ticket !== ''){

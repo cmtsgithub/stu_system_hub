@@ -27,6 +27,16 @@ public class PageController {
     private CourseService courseService;
 
     /**
+     * 跳转到首页
+     * @return
+     */
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index(){
+        return "index";
+    }
+
+
+    /**
      * 跳转到学生列表页面
      * @return
      */
