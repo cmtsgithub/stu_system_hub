@@ -88,7 +88,11 @@ public class StuController {
             stuBaseMsg.setId(stuId);
             //设置密码（证件号后六位）
             String certificateNumber = stuBaseMsg.getCertificateNumber();
-            stuBaseMsg.setPassword(certificateNumber.substring(certificateNumber.length() - 6));
+            //获取身份证后6位
+            String substringPassword = certificateNumber.substring(certificateNumber.length() - 6);
+            //MD5加密
+            String password = MD5Utils.stringToMD5(substringPassword);
+            stuBaseMsg.setPassword(password);
             /*
             设置StuStudyMsg信息
              */

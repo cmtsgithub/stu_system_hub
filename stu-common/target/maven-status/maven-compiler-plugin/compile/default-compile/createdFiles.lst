@@ -4,4 +4,5 @@ com/stu/utils/FileUtils.class
 com/stu/utils/DateUtils.class
 com/stu/utils/HttpClientUtil.class
 com/stu/utils/CookieUtils.class
+com/stu/utils/MD5Utils.class
 com/stu/utils/ExcelUtils.class

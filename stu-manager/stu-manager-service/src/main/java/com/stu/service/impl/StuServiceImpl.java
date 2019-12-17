@@ -11,6 +11,7 @@ import com.stu.service.StuMajorService;
 import com.stu.service.StuService;
 import com.stu.utils.DateUtils;
 import com.stu.utils.ExcelUtils;
+import com.stu.utils.MD5Utils;
 import jxl.Sheet;
 import jxl.Workbook;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -292,7 +293,7 @@ public class StuServiceImpl implements StuService {
                     stuBaseMsg.setAncestralHome(ancestral_home);
                     stuBaseMsg.setEnrollmentDate(DateUtils.strToDate(enrollment_date));
                     stuBaseMsg.setRegPermanentResidence(reg_permanent_residence);
-                    stuBaseMsg.setPassword(certificate_number.substring(certificate_number.length() - 6));
+                    stuBaseMsg.setPassword(MD5Utils.stringToMD5(certificate_number.substring(certificate_number.length() - 6)));
                     stuBaseMsg.setCreated(DateUtils.getNow());
                     stuBaseMsg.setUpdated(DateUtils.getNow());
                     //创建学生学籍对象
