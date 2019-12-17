@@ -16,23 +16,23 @@
     <jsp:include page="/WEB-INF/jsp/common/csslink.jsp"></jsp:include>
     <style type="text/css">
         #loadingDiv{
-        background-color:grey;
-        filter: alpha(opacity=50); /*IE的透明度*/
-        opacity: 0.1; /*透明度，数值越大越透明，不要调太小，不然gif图片会特别模糊*/
-        display: none;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        z-index: 100;  /*此处的图层要大于页面*/
-        display:none;
+            background-color:grey;
+            filter: alpha(opacity=50); /*IE的透明度*/
+            opacity: 0.1; /*透明度，数值越大越透明，不要调太小，不然gif图片会特别模糊*/
+            display: none;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 100;  /*此处的图层要大于页面*/
+            display:none;
         }
     </style>
 </head>
 <body>
 <div id="loadingDiv">
-    <img src="loading.gif" style="margin-top:230px;margin-left:700px;" />
+    <img src="/images/image/common/timg.gif" style="margin-top:230px;margin-left:700px;" />
 </div>
 <!-- Begin page -->
 <header class="am-topbar am-topbar-fixed-top">
@@ -575,10 +575,14 @@
             }
             ,done: function(data){
                 if(data.status == 200){
-                    //刷新页面
-                    window.location.reload();
                     layer.alert(data.msg, {
-                        title: '导入成功'
+                        title: '导出成功',
+                        yes: function(index, layero){
+                            window.location.reload();
+                        },
+                        cancel: function(index, layero){
+                            window.location.reload();
+                        }
                     });
                 }else{
                     layer.alert(data.msg, {
@@ -595,7 +599,7 @@
             }
         });
     });
-    //导入Excel文件
+    //导出Excel文件
     function exportExcel(){
         var url = "/stu/exportExcel";
         window.open(url);
