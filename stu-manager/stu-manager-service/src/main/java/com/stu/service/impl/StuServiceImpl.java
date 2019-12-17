@@ -418,4 +418,31 @@ public class StuServiceImpl implements StuService {
     public List<StuStudyMsg> selectStuStudyMsgAll() {
         return stuStudyMsgMapper.selectAll();
     }
+
+    /**
+     * 通过学生名字查询学生
+     * @param name 用户名
+     * @return list
+     */
+    @Override
+    public List<StuBaseMsg> selectByName(String name) {
+        return stuBaseMsgMapper.selectByName(name);
+    }
+
+    /**
+     * 通过学生名字查询学生，分页显示
+     * @param pageNum 页码
+     * @param pageSize 页大小
+     * @param name 名字
+     * @return pageinfo
+     */
+    @Override
+    public PageInfo<StuBaseMsg> selectByNameByPageNum(int pageNum, int pageSize, String name) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<StuBaseMsg> stuBaseMsgList = selectByName(name);
+        PageInfo<StuBaseMsg> pageInfo = new PageInfo<>(stuBaseMsgList);
+        return pageInfo;
+    }
+
+
 }

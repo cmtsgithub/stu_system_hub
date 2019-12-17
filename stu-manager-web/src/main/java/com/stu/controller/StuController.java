@@ -33,10 +33,34 @@ public class StuController {
      */
     @RequestMapping("/getStuBaseMsg")
     @ResponseBody
-    public String getStuBaseMsg(@RequestParam(defaultValue = "1") Integer status, @RequestParam(defaultValue = "1") int pageNum, @RequestParam(defaultValue = "8") int pageSize){
+    public String getStuBaseMsg(@RequestParam(defaultValue = "1") Integer status,
+                                @RequestParam(defaultValue = "1") int pageNum,
+                                @RequestParam(defaultValue = "10") int pageSize){
         //获得PageInfo
         PageInfo pageInfo = stuService.selectStuBaseMsgByPageNum(pageNum, pageSize, status);
         //把pageInfo转换为Json对象
+        String json = JsonUtils.objectToJson(pageInfo);
+        return json;
+    }
+
+    /**
+     * 通过名字查找学生
+     * @param name 名字
+     * @param pageNum 页码
+     * @param pageSize 页大小
+     * @return json字符串
+     */
+    @RequestMapping(value = "/getStuBaseMsgByName", method = RequestMethod.GET)
+    @ResponseBody
+    public String getStuBaseMsgByName(@RequestParam(defaultValue = "") String name,
+                                      @RequestParam(defaultValue = "1") int pageNum,
+                                      @RequestParam(defaultValue = "10") int pageSize){
+        try{
+            name = new String(name.getBytes("ISO8859-1"),"utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        PageInfo<StuBaseMsg> pageInfo = stuService.selectByNameByPageNum(pageNum, pageSize, name);
         String json = JsonUtils.objectToJson(pageInfo);
         return json;
     }

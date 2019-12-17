@@ -49,9 +49,9 @@
         <ul class="am-nav am-navbar-nav am-navbar-right">
             <li class="inform"><i class="am-icon-bell-o" aria-hidden="true"></i></li>
             <li class="hidden-xs am-hide-sm-only">
-                <form role="search" class="app-search">
+                <form role="search" class="app-search" id="search_form">
                     <input type="text" placeholder="Search..." class="form-control">
-                    <a href=""><img src="../../../../../assets/img/search.png"></a>
+                    <a href=""><img src="/assets/img/search.png"></a>
                 </form>
             </li>
         </ul>
@@ -81,9 +81,9 @@
 
                     <div class="am-u-sm-12 am-u-md-3">
                         <div class="am-input-group am-input-group-sm">
-                            <input type="text" class="am-form-field">
+                            <input type="text" class="am-form-field" id="search_input">
                             <span class="am-input-group-btn">
-				            <button class="am-btn am-btn-default" type="button">搜索</button>
+				            <button class="am-btn am-btn-default" type="button" id="search_btn">搜索</button>
 				          </span>
                         </div>
                     </div>
@@ -250,7 +250,7 @@
         </div>
     </div>
 </form>
-<%--分页脚本--%>
+<%--分页脚本  &  搜索脚本--%>
 <script>
     //时间格式化函数，此处仅针对yyyy-MM-dd hh:mm:ss 的格式进行格式化
     var dateFormat = function(time) {
@@ -274,7 +274,7 @@
         laypage.render({
             elem: 'page'
             ,count: ${pageInfo.total}
-            ,limit: 8
+            ,limit: 10
             ,layout: ['count', 'first', 'prev', 'page', 'next', 'last', 'limit', 'refresh']
             ,first:'首页'
             ,last:'尾页'
@@ -287,15 +287,100 @@
         });
     });
 
+    //定义搜索参数
+    let search_parm = "";
     // 表格渲染函数
     function renderTable(pageNum, pageSize) {
+        if(search_parm.length == 0){
+            $.ajax({
+                type: "get",
+                async: true,
+                contentType: 'application/json',
+                url: "/getStuBaseMsg",
+                data:{
+                    "pageNum":pageNum, "pageSize":pageSize
+                },
+                dataType:"json",
+                success: function(data){
+                    //清空表格数据
+                    $('tbody').empty();
+                    //遍历json
+                    var stuList = data.list;
+                    $.each( stuList, function(index, stu)
+                    {
+                        $("#stu_table").append(
+                            "<tr><td><input type='checkbox' /></td><td >" + stu.id + "</td><td >" + stu.name + "</td><td >" + stu.sex + "</td><td >" + dateFormat(stu.updated) + "</td><td>"
+                            + "<div class='am-btn-toolbar'>\n" +
+                            "    <div class='am-btn-group am-btn-group-xs'>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary edit' type='button' onclick='updateStu(this)'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only' type='button'><span class='am-icon-copy'></span> 复制</button>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only' type='button' onclick='deleteStu(this)'><span class='am-icon-trash-o'></span> 删除</button>\n" +
+                            "    </div>\n" +
+                            "</div>\n" +
+                            "</td>\n" +
+                            "</tr>"
+                        );
+                    });
+                    renderForm();
+                },
+                error: function(){
+                    alert('分页数据请求失败');
+                }
+            });
+        }
+        else{
+            $.ajax({
+                type: "get",
+                async: true,
+                contentType: 'application/json',
+                url: "/getStuBaseMsgByName",
+                data:{
+                    "pageNum":pageNum, "pageSize":pageSize, "name":search_parm
+                },
+                dataType:"json",
+                success: function(data){
+                    //清空表格数据
+                    $('tbody').empty();
+                    //遍历json
+                    var stuList = data.list;
+                    $.each( stuList, function(index, stu)
+                    {
+                        $("#stu_table").append(
+                            "<tr><td><input type='checkbox' /></td><td >" + stu.id + "</td><td >" + stu.name + "</td><td >" + stu.sex + "</td><td >" + dateFormat(stu.updated) + "</td><td>"
+                            + "<div class='am-btn-toolbar'>\n" +
+                            "    <div class='am-btn-group am-btn-group-xs'>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-secondary edit' type='button' onclick='updateStu(this)'><span class='am-icon-pencil-square-o'></span> 编辑</button>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-hide-sm-only' type='button'><span class='am-icon-copy'></span> 复制</button>\n" +
+                            "\t<button class='am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only' type='button' onclick='deleteStu(this)'><span class='am-icon-trash-o'></span> 删除</button>\n" +
+                            "    </div>\n" +
+                            "</div>\n" +
+                            "</td>\n" +
+                            "</tr>"
+                        );
+                    });
+                    renderForm();
+                },
+                error: function(){
+                    alert('分页数据请求失败');
+                }
+            });
+        }
+    }
+
+    // 搜索脚本
+    $("#search_btn").click(function(){
+        let text = $("#search_input").val();
+        if(text.length == 0){
+            return;
+        }
+        search_parm = text;
         $.ajax({
             type: "get",
             async: true,
             contentType: 'application/json',
-            url: "/getStuBaseMsg",
+            url: "/getStuBaseMsgByName",
             data:{
-                "pageNum":pageNum, "pageSize":pageSize
+                "pageNum":1, "pageSize":10, "name": search_parm
             },
             dataType:"json",
             success: function(data){
@@ -319,12 +404,30 @@
                     );
                 });
                 renderForm();
+                layui.use('laypage', function(){
+                    var laypage = layui.laypage;
+                    //执行一个laypage实例
+                    laypage.render({
+                        elem: 'page'
+                        ,count: data.total
+                        ,limit: 10
+                        ,layout: ['count', 'first', 'prev', 'page', 'next', 'last', 'limit', 'refresh']
+                        ,first:'首页'
+                        ,last:'尾页'
+                        ,jump: function(obj, first){
+                            //首次不执行
+                            if(!first){
+                                renderTable(obj.curr, obj.limit);
+                            }
+                        }
+                    });
+                });
             },
             error: function(){
-                alert('分页数据请求失败');
+                alert('查询失败');
             }
         });
-    }
+    });
 </script>
 <%--学生删除，编辑脚本--%>
 <script>

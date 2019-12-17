@@ -46,6 +46,12 @@
     from stu_base_msg
     where id = #{id,jdbcType=CHAR}
   </select>
+  <select id="selectByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from stu_base_msg
+    where name like concat(concat("%",#{value, jdbcType=VARCHAR}),"%")
+  </select>
   <select id="selectAll" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />

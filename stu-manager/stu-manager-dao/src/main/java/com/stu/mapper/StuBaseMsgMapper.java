@@ -22,4 +22,6 @@ public interface StuBaseMsgMapper {
     List<StuBaseMsg> selectAll();
 
     List<StuBaseMsg> selectByStatus(Integer status);
+
+    List<StuBaseMsg> selectByName(String name);
 }

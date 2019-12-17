@@ -35,4 +35,8 @@ public interface StuService {
 
     List<StuStudyMsg> selectStuStudyMsgAll();
 
+    List<StuBaseMsg> selectByName(String name);
+
+    PageInfo<StuBaseMsg> selectByNameByPageNum(int pageNum, int pageSize, String name);
+
 }
